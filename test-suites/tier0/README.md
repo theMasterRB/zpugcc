@@ -11,7 +11,7 @@ Extract the archive to get a standalone `zpu-tests/` directory. It contains:
 - Built test images and recorded execution evidence.
 
 All 19 programs and 500 result checks passed on the original Zylin Java
-simulator. The suite also includes 12 host checks of the result reader and trace
+simulator. The suite also includes 16 host checks of the result reader and trace
 handling, plus evidence that incorrect results, early halts, and execution-budget
 exhaustion are rejected. These results do not validate the team's Questa backend,
 C++ simulator, or RTL; those require separate runs.
@@ -29,14 +29,22 @@ cd zpu-tests
 python3 tools/run.py build
 ```
 
-Python 3.7+ is needed for the tools. The optional Java adapter requires Java 11+
-with compiler support. Instructions for running and checking results are in the
-archive README.
+Python 3.7+ is needed for the tools. The Java adapter runs on Java 8 or newer; a
+JRE is sufficient. The package includes its Java 8 class files, so no Java
+compiler is required. All 500 result checks were rerun successfully on Java 8.
+Instructions for running and checking results are in the archive README.
+
+To run the included images without rebuilding them, use:
+
+```sh
+cd zpu-tests
+python3 tools/run.py reference immediates --jar /path/to/zpusim.jar
+```
 
 ## Archive integrity
 
 SHA-256 of `zpu-tier0-suite.zip`:
 
 ```text
-e542f43a195bef1708dcbf7910dfa67c0c0806da95dfcbfbc6927a4de8577fd8
+fa2b3689cbe5867c22f1b7d9f25e05993a7f6faf15d00c79959e8dd830a20bfd
 ```
