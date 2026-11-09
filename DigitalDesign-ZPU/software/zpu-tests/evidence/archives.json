@@ -1,0 +1,8 @@
+{
+  "java-reference/executions.zip": "262480cee29921bf0a4e2c6a4ed7b41cb7bef1eb8ea832ac74958d7bd21a9b1a",
+  "tier0-cpp/executions.zip": "8fb66a0b3b54175962e33c482ac5c5fc0d3aaa3864f40da79fba2681ad38d142",
+  "emulated-java8/executions.zip": "5d577789c575f6668450d18c6a30fed5d07c4da4fcec5c22d6a0e4bb03b0289f",
+  "emulated-cpp/executions.zip": "52b981f9f3aac9ebf6d49f31aaab22b200fb262fa058a2d53837a279150699ba",
+  "negative-executions/executions.zip": "4911a37f80ca02b9bfcf3cbf7f868a007b4ed13f5a97fa41d0a842752698095e",
+  "negative-emulated/executions.zip": "a8aeb489bf4c3a4dd77a370de1191c96c8bde6800a0b2b77dff8bbaba370ad2e"
+}

@@ -1,0 +1,2048 @@
+{
+  "layout": {
+    "ram_bytes": 32768,
+    "completion_address": "0x1000",
+    "completion_value": "0x5a505530",
+    "result_address": "0x1010"
+  },
+  "tests": {
+    "immediates": [
+      [
+        "0x00000000",
+        "single-byte zero"
+      ],
+      [
+        "0xffffffff",
+        "single-byte -1 sign extension"
+      ],
+      [
+        "0x0000003f",
+        "single-byte +63 boundary"
+      ],
+      [
+        "0xffffffc0",
+        "single-byte -64 boundary"
+      ],
+      [
+        "0x00000040",
+        "two-byte +64 boundary"
+      ],
+      [
+        "0xffffffbf",
+        "two-byte -65 boundary"
+      ],
+      [
+        "0x00004103",
+        "three IM bytes concatenate"
+      ],
+      [
+        "0x00000002",
+        "NOP separates IMs: upper stack value"
+      ],
+      [
+        "0x00000001",
+        "NOP separates IMs: lower stack value preserved"
+      ]
+    ],
+    "addition": [
+      [
+        "0x00000005",
+        "2 + 3"
+      ],
+      [
+        "0x00000000",
+        "0 + 0"
+      ],
+      [
+        "0x00000000",
+        "0xffffffff + 1 wraps to zero"
+      ],
+      [
+        "0x80000000",
+        "0x7fffffff + 1 crosses sign boundary"
+      ],
+      [
+        "0x00000000",
+        "0x80000000 + 0x80000000 discards carry"
+      ],
+      [
+        "0xffffffff",
+        "alternating bit patterns add"
+      ]
+    ],
+    "bitwise": [
+      [
+        "0x03030303",
+        "AND mixed patterns"
+      ],
+      [
+        "0x00000000",
+        "AND with zero"
+      ],
+      [
+        "0x12345678",
+        "AND with all ones"
+      ],
+      [
+        "0x3f3f3f3f",
+        "OR mixed patterns"
+      ],
+      [
+        "0x12345678",
+        "OR with zero"
+      ],
+      [
+        "0xffffffff",
+        "OR with all ones"
+      ],
+      [
+        "0xffffffff",
+        "NOT zero"
+      ],
+      [
+        "0x00000000",
+        "NOT all ones"
+      ],
+      [
+        "0xedcba987",
+        "NOT mixed pattern"
+      ],
+      [
+        "0x80000000",
+        "FLIP bit 0 to bit 31"
+      ],
+      [
+        "0x00000001",
+        "FLIP bit 31 to bit 0"
+      ],
+      [
+        "0xe6a2c480",
+        "FLIP mixed pattern reverses bits"
+      ]
+    ],
+    "memory": [
+      [
+        "0x13579bdf",
+        "lower neighbor survives middle-word overwrite"
+      ],
+      [
+        "0x89abcdef",
+        "middle-word load returns updated value"
+      ],
+      [
+        "0x2468ace0",
+        "upper neighbor survives middle-word overwrite"
+      ],
+      [
+        "0x00000000",
+        "overwrite and load zero"
+      ],
+      [
+        "0xffffffff",
+        "overwrite and load all ones"
+      ]
+    ],
+    "im_patterns": [
+      [
+        "0x00000000",
+        "five-byte IM construction of 0x00000000"
+      ],
+      [
+        "0x00000001",
+        "five-byte IM construction of 0x00000001"
+      ],
+      [
+        "0x000000ff",
+        "five-byte IM construction of 0x000000ff"
+      ],
+      [
+        "0x00000100",
+        "five-byte IM construction of 0x00000100"
+      ],
+      [
+        "0x00007fff",
+        "five-byte IM construction of 0x00007fff"
+      ],
+      [
+        "0x00008000",
+        "five-byte IM construction of 0x00008000"
+      ],
+      [
+        "0x0000ffff",
+        "five-byte IM construction of 0x0000ffff"
+      ],
+      [
+        "0x00010000",
+        "five-byte IM construction of 0x00010000"
+      ],
+      [
+        "0x007fffff",
+        "five-byte IM construction of 0x007fffff"
+      ],
+      [
+        "0x00800000",
+        "five-byte IM construction of 0x00800000"
+      ],
+      [
+        "0x7fffffff",
+        "five-byte IM construction of 0x7fffffff"
+      ],
+      [
+        "0x80000000",
+        "five-byte IM construction of 0x80000000"
+      ],
+      [
+        "0xffffffff",
+        "five-byte IM construction of 0xffffffff"
+      ],
+      [
+        "0x01234567",
+        "five-byte IM construction of 0x01234567"
+      ],
+      [
+        "0x89abcdef",
+        "five-byte IM construction of 0x89abcdef"
+      ],
+      [
+        "0xa5a55a5a",
+        "five-byte IM construction of 0xa5a55a5a"
+      ]
+    ],
+    "add_carries": [
+      [
+        "0x00000002",
+        "ADD carry through 1 one bits"
+      ],
+      [
+        "0x00000004",
+        "ADD carry through 2 one bits"
+      ],
+      [
+        "0x00000008",
+        "ADD carry through 3 one bits"
+      ],
+      [
+        "0x00000010",
+        "ADD carry through 4 one bits"
+      ],
+      [
+        "0x00000020",
+        "ADD carry through 5 one bits"
+      ],
+      [
+        "0x00000040",
+        "ADD carry through 6 one bits"
+      ],
+      [
+        "0x00000080",
+        "ADD carry through 7 one bits"
+      ],
+      [
+        "0x00000100",
+        "ADD carry through 8 one bits"
+      ],
+      [
+        "0x00000200",
+        "ADD carry through 9 one bits"
+      ],
+      [
+        "0x00000400",
+        "ADD carry through 10 one bits"
+      ],
+      [
+        "0x00000800",
+        "ADD carry through 11 one bits"
+      ],
+      [
+        "0x00001000",
+        "ADD carry through 12 one bits"
+      ],
+      [
+        "0x00002000",
+        "ADD carry through 13 one bits"
+      ],
+      [
+        "0x00004000",
+        "ADD carry through 14 one bits"
+      ],
+      [
+        "0x00008000",
+        "ADD carry through 15 one bits"
+      ],
+      [
+        "0x00010000",
+        "ADD carry through 16 one bits"
+      ],
+      [
+        "0x00020000",
+        "ADD carry through 17 one bits"
+      ],
+      [
+        "0x00040000",
+        "ADD carry through 18 one bits"
+      ],
+      [
+        "0x00080000",
+        "ADD carry through 19 one bits"
+      ],
+      [
+        "0x00100000",
+        "ADD carry through 20 one bits"
+      ],
+      [
+        "0x00200000",
+        "ADD carry through 21 one bits"
+      ],
+      [
+        "0x00400000",
+        "ADD carry through 22 one bits"
+      ],
+      [
+        "0x00800000",
+        "ADD carry through 23 one bits"
+      ],
+      [
+        "0x01000000",
+        "ADD carry through 24 one bits"
+      ],
+      [
+        "0x02000000",
+        "ADD carry through 25 one bits"
+      ],
+      [
+        "0x04000000",
+        "ADD carry through 26 one bits"
+      ],
+      [
+        "0x08000000",
+        "ADD carry through 27 one bits"
+      ],
+      [
+        "0x10000000",
+        "ADD carry through 28 one bits"
+      ],
+      [
+        "0x20000000",
+        "ADD carry through 29 one bits"
+      ],
+      [
+        "0x40000000",
+        "ADD carry through 30 one bits"
+      ],
+      [
+        "0x80000000",
+        "ADD carry through 31 one bits"
+      ],
+      [
+        "0x00000000",
+        "ADD carry through 32 one bits"
+      ]
+    ],
+    "flip_bits": [
+      [
+        "0x80000000",
+        "FLIP bit 0 to bit 31"
+      ],
+      [
+        "0x40000000",
+        "FLIP bit 1 to bit 30"
+      ],
+      [
+        "0x20000000",
+        "FLIP bit 2 to bit 29"
+      ],
+      [
+        "0x10000000",
+        "FLIP bit 3 to bit 28"
+      ],
+      [
+        "0x08000000",
+        "FLIP bit 4 to bit 27"
+      ],
+      [
+        "0x04000000",
+        "FLIP bit 5 to bit 26"
+      ],
+      [
+        "0x02000000",
+        "FLIP bit 6 to bit 25"
+      ],
+      [
+        "0x01000000",
+        "FLIP bit 7 to bit 24"
+      ],
+      [
+        "0x00800000",
+        "FLIP bit 8 to bit 23"
+      ],
+      [
+        "0x00400000",
+        "FLIP bit 9 to bit 22"
+      ],
+      [
+        "0x00200000",
+        "FLIP bit 10 to bit 21"
+      ],
+      [
+        "0x00100000",
+        "FLIP bit 11 to bit 20"
+      ],
+      [
+        "0x00080000",
+        "FLIP bit 12 to bit 19"
+      ],
+      [
+        "0x00040000",
+        "FLIP bit 13 to bit 18"
+      ],
+      [
+        "0x00020000",
+        "FLIP bit 14 to bit 17"
+      ],
+      [
+        "0x00010000",
+        "FLIP bit 15 to bit 16"
+      ],
+      [
+        "0x00008000",
+        "FLIP bit 16 to bit 15"
+      ],
+      [
+        "0x00004000",
+        "FLIP bit 17 to bit 14"
+      ],
+      [
+        "0x00002000",
+        "FLIP bit 18 to bit 13"
+      ],
+      [
+        "0x00001000",
+        "FLIP bit 19 to bit 12"
+      ],
+      [
+        "0x00000800",
+        "FLIP bit 20 to bit 11"
+      ],
+      [
+        "0x00000400",
+        "FLIP bit 21 to bit 10"
+      ],
+      [
+        "0x00000200",
+        "FLIP bit 22 to bit 9"
+      ],
+      [
+        "0x00000100",
+        "FLIP bit 23 to bit 8"
+      ],
+      [
+        "0x00000080",
+        "FLIP bit 24 to bit 7"
+      ],
+      [
+        "0x00000040",
+        "FLIP bit 25 to bit 6"
+      ],
+      [
+        "0x00000020",
+        "FLIP bit 26 to bit 5"
+      ],
+      [
+        "0x00000010",
+        "FLIP bit 27 to bit 4"
+      ],
+      [
+        "0x00000008",
+        "FLIP bit 28 to bit 3"
+      ],
+      [
+        "0x00000004",
+        "FLIP bit 29 to bit 2"
+      ],
+      [
+        "0x00000002",
+        "FLIP bit 30 to bit 1"
+      ],
+      [
+        "0x00000001",
+        "FLIP bit 31 to bit 0"
+      ]
+    ],
+    "stack_pointer": [
+      [
+        "0x00007ff8",
+        "PUSHSP reports pre-push SP"
+      ],
+      [
+        "0x00007ff4",
+        "pushing one word reduces SP by four bytes"
+      ],
+      [
+        "0x11223344",
+        "PUSHSP and result saving preserve the prior TOS"
+      ],
+      [
+        "0x00007ff8",
+        "popping results restores baseline SP"
+      ],
+      [
+        "0x00007800",
+        "POPSP selects exactly the supplied address"
+      ],
+      [
+        "0x000077fc",
+        "second consecutive PUSHSP sees first push"
+      ],
+      [
+        "0x00007800",
+        "first consecutive PUSHSP value is preserved"
+      ],
+      [
+        "0x00007800",
+        "two saved PUSHSP values leave no stack leak"
+      ],
+      [
+        "0x00007400",
+        "POPSP relocates the stack to another valid RAM address"
+      ],
+      [
+        "0x00007400",
+        "saving a stack-pointer result leaves SP unchanged"
+      ]
+    ],
+    "loadsp_low": [
+      [
+        "0x81234500",
+        "LOADSP 0: copied value"
+      ],
+      [
+        "0x81234500",
+        "LOADSP 0: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 0: push then SAVE restores SP"
+      ],
+      [
+        "0x81234501",
+        "LOADSP 4: copied value"
+      ],
+      [
+        "0x81234501",
+        "LOADSP 4: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 4: push then SAVE restores SP"
+      ],
+      [
+        "0x81234502",
+        "LOADSP 8: copied value"
+      ],
+      [
+        "0x81234502",
+        "LOADSP 8: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 8: push then SAVE restores SP"
+      ],
+      [
+        "0x81234503",
+        "LOADSP 12: copied value"
+      ],
+      [
+        "0x81234503",
+        "LOADSP 12: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 12: push then SAVE restores SP"
+      ],
+      [
+        "0x81234504",
+        "LOADSP 16: copied value"
+      ],
+      [
+        "0x81234504",
+        "LOADSP 16: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 16: push then SAVE restores SP"
+      ],
+      [
+        "0x81234505",
+        "LOADSP 20: copied value"
+      ],
+      [
+        "0x81234505",
+        "LOADSP 20: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 20: push then SAVE restores SP"
+      ],
+      [
+        "0x81234506",
+        "LOADSP 24: copied value"
+      ],
+      [
+        "0x81234506",
+        "LOADSP 24: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 24: push then SAVE restores SP"
+      ],
+      [
+        "0x81234507",
+        "LOADSP 28: copied value"
+      ],
+      [
+        "0x81234507",
+        "LOADSP 28: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 28: push then SAVE restores SP"
+      ],
+      [
+        "0x81234508",
+        "LOADSP 32: copied value"
+      ],
+      [
+        "0x81234508",
+        "LOADSP 32: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 32: push then SAVE restores SP"
+      ],
+      [
+        "0x81234509",
+        "LOADSP 36: copied value"
+      ],
+      [
+        "0x81234509",
+        "LOADSP 36: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 36: push then SAVE restores SP"
+      ],
+      [
+        "0x8123450a",
+        "LOADSP 40: copied value"
+      ],
+      [
+        "0x8123450a",
+        "LOADSP 40: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 40: push then SAVE restores SP"
+      ],
+      [
+        "0x8123450b",
+        "LOADSP 44: copied value"
+      ],
+      [
+        "0x8123450b",
+        "LOADSP 44: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 44: push then SAVE restores SP"
+      ],
+      [
+        "0x8123450c",
+        "LOADSP 48: copied value"
+      ],
+      [
+        "0x8123450c",
+        "LOADSP 48: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 48: push then SAVE restores SP"
+      ],
+      [
+        "0x8123450d",
+        "LOADSP 52: copied value"
+      ],
+      [
+        "0x8123450d",
+        "LOADSP 52: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 52: push then SAVE restores SP"
+      ],
+      [
+        "0x8123450e",
+        "LOADSP 56: copied value"
+      ],
+      [
+        "0x8123450e",
+        "LOADSP 56: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 56: push then SAVE restores SP"
+      ],
+      [
+        "0x8123450f",
+        "LOADSP 60: copied value"
+      ],
+      [
+        "0x8123450f",
+        "LOADSP 60: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 60: push then SAVE restores SP"
+      ]
+    ],
+    "loadsp_high": [
+      [
+        "0x81234510",
+        "LOADSP 64: copied value"
+      ],
+      [
+        "0x81234510",
+        "LOADSP 64: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 64: push then SAVE restores SP"
+      ],
+      [
+        "0x81234511",
+        "LOADSP 68: copied value"
+      ],
+      [
+        "0x81234511",
+        "LOADSP 68: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 68: push then SAVE restores SP"
+      ],
+      [
+        "0x81234512",
+        "LOADSP 72: copied value"
+      ],
+      [
+        "0x81234512",
+        "LOADSP 72: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 72: push then SAVE restores SP"
+      ],
+      [
+        "0x81234513",
+        "LOADSP 76: copied value"
+      ],
+      [
+        "0x81234513",
+        "LOADSP 76: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 76: push then SAVE restores SP"
+      ],
+      [
+        "0x81234514",
+        "LOADSP 80: copied value"
+      ],
+      [
+        "0x81234514",
+        "LOADSP 80: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 80: push then SAVE restores SP"
+      ],
+      [
+        "0x81234515",
+        "LOADSP 84: copied value"
+      ],
+      [
+        "0x81234515",
+        "LOADSP 84: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 84: push then SAVE restores SP"
+      ],
+      [
+        "0x81234516",
+        "LOADSP 88: copied value"
+      ],
+      [
+        "0x81234516",
+        "LOADSP 88: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 88: push then SAVE restores SP"
+      ],
+      [
+        "0x81234517",
+        "LOADSP 92: copied value"
+      ],
+      [
+        "0x81234517",
+        "LOADSP 92: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 92: push then SAVE restores SP"
+      ],
+      [
+        "0x81234518",
+        "LOADSP 96: copied value"
+      ],
+      [
+        "0x81234518",
+        "LOADSP 96: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 96: push then SAVE restores SP"
+      ],
+      [
+        "0x81234519",
+        "LOADSP 100: copied value"
+      ],
+      [
+        "0x81234519",
+        "LOADSP 100: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 100: push then SAVE restores SP"
+      ],
+      [
+        "0x8123451a",
+        "LOADSP 104: copied value"
+      ],
+      [
+        "0x8123451a",
+        "LOADSP 104: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 104: push then SAVE restores SP"
+      ],
+      [
+        "0x8123451b",
+        "LOADSP 108: copied value"
+      ],
+      [
+        "0x8123451b",
+        "LOADSP 108: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 108: push then SAVE restores SP"
+      ],
+      [
+        "0x8123451c",
+        "LOADSP 112: copied value"
+      ],
+      [
+        "0x8123451c",
+        "LOADSP 112: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 112: push then SAVE restores SP"
+      ],
+      [
+        "0x8123451d",
+        "LOADSP 116: copied value"
+      ],
+      [
+        "0x8123451d",
+        "LOADSP 116: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 116: push then SAVE restores SP"
+      ],
+      [
+        "0x8123451e",
+        "LOADSP 120: copied value"
+      ],
+      [
+        "0x8123451e",
+        "LOADSP 120: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 120: push then SAVE restores SP"
+      ],
+      [
+        "0x8123451f",
+        "LOADSP 124: copied value"
+      ],
+      [
+        "0x8123451f",
+        "LOADSP 124: source unchanged"
+      ],
+      [
+        "0x00007800",
+        "LOADSP 124: push then SAVE restores SP"
+      ]
+    ],
+    "storesp_low": [
+      [
+        "0x11223344",
+        "STORESP 0: discard preserves old NOS"
+      ],
+      [
+        "0x55667788",
+        "STORESP 0: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 0: pops exactly one word"
+      ],
+      [
+        "0xcafe0001",
+        "STORESP 4: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 4: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 4: pops exactly one word"
+      ],
+      [
+        "0xcafe0002",
+        "STORESP 8: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 8: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 8: pops exactly one word"
+      ],
+      [
+        "0xcafe0003",
+        "STORESP 12: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 12: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 12: pops exactly one word"
+      ],
+      [
+        "0xcafe0004",
+        "STORESP 16: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 16: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 16: pops exactly one word"
+      ],
+      [
+        "0xcafe0005",
+        "STORESP 20: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 20: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 20: pops exactly one word"
+      ],
+      [
+        "0xcafe0006",
+        "STORESP 24: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 24: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 24: pops exactly one word"
+      ],
+      [
+        "0xcafe0007",
+        "STORESP 28: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 28: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 28: pops exactly one word"
+      ],
+      [
+        "0xcafe0008",
+        "STORESP 32: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 32: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 32: pops exactly one word"
+      ],
+      [
+        "0xcafe0009",
+        "STORESP 36: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 36: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 36: pops exactly one word"
+      ],
+      [
+        "0xcafe000a",
+        "STORESP 40: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 40: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 40: pops exactly one word"
+      ],
+      [
+        "0xcafe000b",
+        "STORESP 44: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 44: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 44: pops exactly one word"
+      ],
+      [
+        "0xcafe000c",
+        "STORESP 48: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 48: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 48: pops exactly one word"
+      ],
+      [
+        "0xcafe000d",
+        "STORESP 52: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 52: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 52: pops exactly one word"
+      ],
+      [
+        "0xcafe000e",
+        "STORESP 56: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 56: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 56: pops exactly one word"
+      ],
+      [
+        "0xcafe000f",
+        "STORESP 60: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 60: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 60: pops exactly one word"
+      ]
+    ],
+    "storesp_high": [
+      [
+        "0xcafe0010",
+        "STORESP 64: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 64: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 64: pops exactly one word"
+      ],
+      [
+        "0xcafe0011",
+        "STORESP 68: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 68: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 68: pops exactly one word"
+      ],
+      [
+        "0xcafe0012",
+        "STORESP 72: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 72: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 72: pops exactly one word"
+      ],
+      [
+        "0xcafe0013",
+        "STORESP 76: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 76: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 76: pops exactly one word"
+      ],
+      [
+        "0xcafe0014",
+        "STORESP 80: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 80: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 80: pops exactly one word"
+      ],
+      [
+        "0xcafe0015",
+        "STORESP 84: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 84: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 84: pops exactly one word"
+      ],
+      [
+        "0xcafe0016",
+        "STORESP 88: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 88: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 88: pops exactly one word"
+      ],
+      [
+        "0xcafe0017",
+        "STORESP 92: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 92: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 92: pops exactly one word"
+      ],
+      [
+        "0xcafe0018",
+        "STORESP 96: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 96: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 96: pops exactly one word"
+      ],
+      [
+        "0xcafe0019",
+        "STORESP 100: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 100: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 100: pops exactly one word"
+      ],
+      [
+        "0xcafe001a",
+        "STORESP 104: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 104: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 104: pops exactly one word"
+      ],
+      [
+        "0xcafe001b",
+        "STORESP 108: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 108: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 108: pops exactly one word"
+      ],
+      [
+        "0xcafe001c",
+        "STORESP 112: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 112: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 112: pops exactly one word"
+      ],
+      [
+        "0xcafe001d",
+        "STORESP 116: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 116: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 116: pops exactly one word"
+      ],
+      [
+        "0xcafe001e",
+        "STORESP 120: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 120: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 120: pops exactly one word"
+      ],
+      [
+        "0xcafe001f",
+        "STORESP 124: target updated"
+      ],
+      [
+        "0x55667788",
+        "STORESP 124: higher neighbor unchanged"
+      ],
+      [
+        "0x00007800",
+        "STORESP 124: pops exactly one word"
+      ]
+    ],
+    "addsp_offsets": [
+      [
+        "0xfffffffe",
+        "ADDSP 0: TOS plus selected word"
+      ],
+      [
+        "0x00007804",
+        "ADDSP 0: replaces TOS, SAVE consumes it"
+      ],
+      [
+        "0x13579bdf",
+        "ADDSP 0: guard preserved"
+      ],
+      [
+        "0x80000002",
+        "ADDSP 4: TOS plus selected word"
+      ],
+      [
+        "0x00007804",
+        "ADDSP 4: replaces TOS, SAVE consumes it"
+      ],
+      [
+        "0x00000011",
+        "ADDSP 4: source preserved"
+      ],
+      [
+        "0x80000004",
+        "ADDSP 8: TOS plus selected word"
+      ],
+      [
+        "0x00007804",
+        "ADDSP 8: replaces TOS, SAVE consumes it"
+      ],
+      [
+        "0x00000012",
+        "ADDSP 8: source preserved"
+      ],
+      [
+        "0x80000006",
+        "ADDSP 12: TOS plus selected word"
+      ],
+      [
+        "0x00007804",
+        "ADDSP 12: replaces TOS, SAVE consumes it"
+      ],
+      [
+        "0x00000013",
+        "ADDSP 12: source preserved"
+      ],
+      [
+        "0x80000008",
+        "ADDSP 16: TOS plus selected word"
+      ],
+      [
+        "0x00007804",
+        "ADDSP 16: replaces TOS, SAVE consumes it"
+      ],
+      [
+        "0x00000014",
+        "ADDSP 16: source preserved"
+      ],
+      [
+        "0x8000000a",
+        "ADDSP 20: TOS plus selected word"
+      ],
+      [
+        "0x00007804",
+        "ADDSP 20: replaces TOS, SAVE consumes it"
+      ],
+      [
+        "0x00000015",
+        "ADDSP 20: source preserved"
+      ],
+      [
+        "0x8000000c",
+        "ADDSP 24: TOS plus selected word"
+      ],
+      [
+        "0x00007804",
+        "ADDSP 24: replaces TOS, SAVE consumes it"
+      ],
+      [
+        "0x00000016",
+        "ADDSP 24: source preserved"
+      ],
+      [
+        "0x8000000e",
+        "ADDSP 28: TOS plus selected word"
+      ],
+      [
+        "0x00007804",
+        "ADDSP 28: replaces TOS, SAVE consumes it"
+      ],
+      [
+        "0x00000017",
+        "ADDSP 28: source preserved"
+      ],
+      [
+        "0x80000010",
+        "ADDSP 32: TOS plus selected word"
+      ],
+      [
+        "0x00007804",
+        "ADDSP 32: replaces TOS, SAVE consumes it"
+      ],
+      [
+        "0x00000018",
+        "ADDSP 32: source preserved"
+      ],
+      [
+        "0x80000012",
+        "ADDSP 36: TOS plus selected word"
+      ],
+      [
+        "0x00007804",
+        "ADDSP 36: replaces TOS, SAVE consumes it"
+      ],
+      [
+        "0x00000019",
+        "ADDSP 36: source preserved"
+      ],
+      [
+        "0x80000014",
+        "ADDSP 40: TOS plus selected word"
+      ],
+      [
+        "0x00007804",
+        "ADDSP 40: replaces TOS, SAVE consumes it"
+      ],
+      [
+        "0x0000001a",
+        "ADDSP 40: source preserved"
+      ],
+      [
+        "0x80000016",
+        "ADDSP 44: TOS plus selected word"
+      ],
+      [
+        "0x00007804",
+        "ADDSP 44: replaces TOS, SAVE consumes it"
+      ],
+      [
+        "0x0000001b",
+        "ADDSP 44: source preserved"
+      ],
+      [
+        "0x80000018",
+        "ADDSP 48: TOS plus selected word"
+      ],
+      [
+        "0x00007804",
+        "ADDSP 48: replaces TOS, SAVE consumes it"
+      ],
+      [
+        "0x0000001c",
+        "ADDSP 48: source preserved"
+      ],
+      [
+        "0x8000001a",
+        "ADDSP 52: TOS plus selected word"
+      ],
+      [
+        "0x00007804",
+        "ADDSP 52: replaces TOS, SAVE consumes it"
+      ],
+      [
+        "0x0000001d",
+        "ADDSP 52: source preserved"
+      ],
+      [
+        "0x8000001c",
+        "ADDSP 56: TOS plus selected word"
+      ],
+      [
+        "0x00007804",
+        "ADDSP 56: replaces TOS, SAVE consumes it"
+      ],
+      [
+        "0x0000001e",
+        "ADDSP 56: source preserved"
+      ],
+      [
+        "0x8000001e",
+        "ADDSP 60: TOS plus selected word"
+      ],
+      [
+        "0x00007804",
+        "ADDSP 60: replaces TOS, SAVE consumes it"
+      ],
+      [
+        "0x0000001f",
+        "ADDSP 60: source preserved"
+      ]
+    ],
+    "poppc": [
+      [
+        "0x55aa55aa",
+        "forward POPPC skips poison store"
+      ],
+      [
+        "0x00007ff8",
+        "forward POPPC consumes target address"
+      ],
+      [
+        "0x00001234",
+        "backward POPPC reaches target and returns via explicit jump"
+      ],
+      [
+        "0x00007ff8",
+        "backward control flow leaves no stack leak"
+      ],
+      [
+        "0x89abcdef",
+        "POPPC preserves value beneath target address"
+      ],
+      [
+        "0x00007ff8",
+        "control-transfer tests restore baseline SP"
+      ]
+    ],
+    "memory_patterns": [
+      [
+        "0x00000000",
+        "word pattern at 0x12e0"
+      ],
+      [
+        "0x00000001",
+        "word pattern at 0x12e4"
+      ],
+      [
+        "0x000000ff",
+        "word pattern at 0x12e8"
+      ],
+      [
+        "0x00000100",
+        "word pattern at 0x12ec"
+      ],
+      [
+        "0x00007fff",
+        "word pattern at 0x12f0"
+      ],
+      [
+        "0x00008000",
+        "word pattern at 0x12f4"
+      ],
+      [
+        "0x0000ffff",
+        "word pattern at 0x12f8"
+      ],
+      [
+        "0x00010000",
+        "word pattern at 0x12fc"
+      ],
+      [
+        "0x007fffff",
+        "word pattern at 0x1300"
+      ],
+      [
+        "0x00800000",
+        "word pattern at 0x1304"
+      ],
+      [
+        "0x7fffffff",
+        "word pattern at 0x1308"
+      ],
+      [
+        "0x80000000",
+        "word pattern at 0x130c"
+      ],
+      [
+        "0xffffffff",
+        "word pattern at 0x1310"
+      ],
+      [
+        "0x01234567",
+        "word pattern at 0x1314"
+      ],
+      [
+        "0x89abcdef",
+        "word pattern at 0x1318"
+      ],
+      [
+        "0xa5a55a5a",
+        "word pattern at 0x131c"
+      ],
+      [
+        "0xffffffff",
+        "alternating overwrite preserves correct word at 0x12e0"
+      ],
+      [
+        "0x00000001",
+        "alternating overwrite preserves correct word at 0x12e4"
+      ],
+      [
+        "0xffffff00",
+        "alternating overwrite preserves correct word at 0x12e8"
+      ],
+      [
+        "0x00000100",
+        "alternating overwrite preserves correct word at 0x12ec"
+      ],
+      [
+        "0xffff8000",
+        "alternating overwrite preserves correct word at 0x12f0"
+      ],
+      [
+        "0x00008000",
+        "alternating overwrite preserves correct word at 0x12f4"
+      ],
+      [
+        "0xffff0000",
+        "alternating overwrite preserves correct word at 0x12f8"
+      ],
+      [
+        "0x00010000",
+        "alternating overwrite preserves correct word at 0x12fc"
+      ],
+      [
+        "0xff800000",
+        "alternating overwrite preserves correct word at 0x1300"
+      ],
+      [
+        "0x00800000",
+        "alternating overwrite preserves correct word at 0x1304"
+      ],
+      [
+        "0x80000000",
+        "alternating overwrite preserves correct word at 0x1308"
+      ],
+      [
+        "0x80000000",
+        "alternating overwrite preserves correct word at 0x130c"
+      ],
+      [
+        "0x00000000",
+        "alternating overwrite preserves correct word at 0x1310"
+      ],
+      [
+        "0x01234567",
+        "alternating overwrite preserves correct word at 0x1314"
+      ],
+      [
+        "0x76543210",
+        "alternating overwrite preserves correct word at 0x1318"
+      ],
+      [
+        "0xa5a55a5a",
+        "alternating overwrite preserves correct word at 0x131c"
+      ]
+    ],
+    "nop": [
+      [
+        "0x89abcdef",
+        "NOP preserves TOS"
+      ],
+      [
+        "0x00007ff8",
+        "NOP does not push or pop"
+      ],
+      [
+        "0xffffffc0",
+        "NOP separates negative immediate from positive immediate"
+      ],
+      [
+        "0x0000003f",
+        "NOP keeps the earlier positive immediate as a separate value"
+      ]
+    ],
+    "and_bits": [
+      [
+        "0x00000000",
+        "AND walking bit 0"
+      ],
+      [
+        "0x00000002",
+        "AND walking bit 1"
+      ],
+      [
+        "0x00000000",
+        "AND walking bit 2"
+      ],
+      [
+        "0x00000008",
+        "AND walking bit 3"
+      ],
+      [
+        "0x00000000",
+        "AND walking bit 4"
+      ],
+      [
+        "0x00000020",
+        "AND walking bit 5"
+      ],
+      [
+        "0x00000000",
+        "AND walking bit 6"
+      ],
+      [
+        "0x00000080",
+        "AND walking bit 7"
+      ],
+      [
+        "0x00000000",
+        "AND walking bit 8"
+      ],
+      [
+        "0x00000200",
+        "AND walking bit 9"
+      ],
+      [
+        "0x00000000",
+        "AND walking bit 10"
+      ],
+      [
+        "0x00000800",
+        "AND walking bit 11"
+      ],
+      [
+        "0x00000000",
+        "AND walking bit 12"
+      ],
+      [
+        "0x00002000",
+        "AND walking bit 13"
+      ],
+      [
+        "0x00000000",
+        "AND walking bit 14"
+      ],
+      [
+        "0x00008000",
+        "AND walking bit 15"
+      ],
+      [
+        "0x00000000",
+        "AND walking bit 16"
+      ],
+      [
+        "0x00020000",
+        "AND walking bit 17"
+      ],
+      [
+        "0x00000000",
+        "AND walking bit 18"
+      ],
+      [
+        "0x00080000",
+        "AND walking bit 19"
+      ],
+      [
+        "0x00000000",
+        "AND walking bit 20"
+      ],
+      [
+        "0x00200000",
+        "AND walking bit 21"
+      ],
+      [
+        "0x00000000",
+        "AND walking bit 22"
+      ],
+      [
+        "0x00800000",
+        "AND walking bit 23"
+      ],
+      [
+        "0x00000000",
+        "AND walking bit 24"
+      ],
+      [
+        "0x02000000",
+        "AND walking bit 25"
+      ],
+      [
+        "0x00000000",
+        "AND walking bit 26"
+      ],
+      [
+        "0x08000000",
+        "AND walking bit 27"
+      ],
+      [
+        "0x00000000",
+        "AND walking bit 28"
+      ],
+      [
+        "0x20000000",
+        "AND walking bit 29"
+      ],
+      [
+        "0x00000000",
+        "AND walking bit 30"
+      ],
+      [
+        "0x80000000",
+        "AND walking bit 31"
+      ]
+    ],
+    "or_bits": [
+      [
+        "0xaaaaaaab",
+        "OR walking bit 0"
+      ],
+      [
+        "0xaaaaaaaa",
+        "OR walking bit 1"
+      ],
+      [
+        "0xaaaaaaae",
+        "OR walking bit 2"
+      ],
+      [
+        "0xaaaaaaaa",
+        "OR walking bit 3"
+      ],
+      [
+        "0xaaaaaaba",
+        "OR walking bit 4"
+      ],
+      [
+        "0xaaaaaaaa",
+        "OR walking bit 5"
+      ],
+      [
+        "0xaaaaaaea",
+        "OR walking bit 6"
+      ],
+      [
+        "0xaaaaaaaa",
+        "OR walking bit 7"
+      ],
+      [
+        "0xaaaaabaa",
+        "OR walking bit 8"
+      ],
+      [
+        "0xaaaaaaaa",
+        "OR walking bit 9"
+      ],
+      [
+        "0xaaaaaeaa",
+        "OR walking bit 10"
+      ],
+      [
+        "0xaaaaaaaa",
+        "OR walking bit 11"
+      ],
+      [
+        "0xaaaabaaa",
+        "OR walking bit 12"
+      ],
+      [
+        "0xaaaaaaaa",
+        "OR walking bit 13"
+      ],
+      [
+        "0xaaaaeaaa",
+        "OR walking bit 14"
+      ],
+      [
+        "0xaaaaaaaa",
+        "OR walking bit 15"
+      ],
+      [
+        "0xaaabaaaa",
+        "OR walking bit 16"
+      ],
+      [
+        "0xaaaaaaaa",
+        "OR walking bit 17"
+      ],
+      [
+        "0xaaaeaaaa",
+        "OR walking bit 18"
+      ],
+      [
+        "0xaaaaaaaa",
+        "OR walking bit 19"
+      ],
+      [
+        "0xaabaaaaa",
+        "OR walking bit 20"
+      ],
+      [
+        "0xaaaaaaaa",
+        "OR walking bit 21"
+      ],
+      [
+        "0xaaeaaaaa",
+        "OR walking bit 22"
+      ],
+      [
+        "0xaaaaaaaa",
+        "OR walking bit 23"
+      ],
+      [
+        "0xabaaaaaa",
+        "OR walking bit 24"
+      ],
+      [
+        "0xaaaaaaaa",
+        "OR walking bit 25"
+      ],
+      [
+        "0xaeaaaaaa",
+        "OR walking bit 26"
+      ],
+      [
+        "0xaaaaaaaa",
+        "OR walking bit 27"
+      ],
+      [
+        "0xbaaaaaaa",
+        "OR walking bit 28"
+      ],
+      [
+        "0xaaaaaaaa",
+        "OR walking bit 29"
+      ],
+      [
+        "0xeaaaaaaa",
+        "OR walking bit 30"
+      ],
+      [
+        "0xaaaaaaaa",
+        "OR walking bit 31"
+      ]
+    ],
+    "not_bits": [
+      [
+        "0xfffffffe",
+        "NOT walking bit 0"
+      ],
+      [
+        "0xfffffffd",
+        "NOT walking bit 1"
+      ],
+      [
+        "0xfffffffb",
+        "NOT walking bit 2"
+      ],
+      [
+        "0xfffffff7",
+        "NOT walking bit 3"
+      ],
+      [
+        "0xffffffef",
+        "NOT walking bit 4"
+      ],
+      [
+        "0xffffffdf",
+        "NOT walking bit 5"
+      ],
+      [
+        "0xffffffbf",
+        "NOT walking bit 6"
+      ],
+      [
+        "0xffffff7f",
+        "NOT walking bit 7"
+      ],
+      [
+        "0xfffffeff",
+        "NOT walking bit 8"
+      ],
+      [
+        "0xfffffdff",
+        "NOT walking bit 9"
+      ],
+      [
+        "0xfffffbff",
+        "NOT walking bit 10"
+      ],
+      [
+        "0xfffff7ff",
+        "NOT walking bit 11"
+      ],
+      [
+        "0xffffefff",
+        "NOT walking bit 12"
+      ],
+      [
+        "0xffffdfff",
+        "NOT walking bit 13"
+      ],
+      [
+        "0xffffbfff",
+        "NOT walking bit 14"
+      ],
+      [
+        "0xffff7fff",
+        "NOT walking bit 15"
+      ],
+      [
+        "0xfffeffff",
+        "NOT walking bit 16"
+      ],
+      [
+        "0xfffdffff",
+        "NOT walking bit 17"
+      ],
+      [
+        "0xfffbffff",
+        "NOT walking bit 18"
+      ],
+      [
+        "0xfff7ffff",
+        "NOT walking bit 19"
+      ],
+      [
+        "0xffefffff",
+        "NOT walking bit 20"
+      ],
+      [
+        "0xffdfffff",
+        "NOT walking bit 21"
+      ],
+      [
+        "0xffbfffff",
+        "NOT walking bit 22"
+      ],
+      [
+        "0xff7fffff",
+        "NOT walking bit 23"
+      ],
+      [
+        "0xfeffffff",
+        "NOT walking bit 24"
+      ],
+      [
+        "0xfdffffff",
+        "NOT walking bit 25"
+      ],
+      [
+        "0xfbffffff",
+        "NOT walking bit 26"
+      ],
+      [
+        "0xf7ffffff",
+        "NOT walking bit 27"
+      ],
+      [
+        "0xefffffff",
+        "NOT walking bit 28"
+      ],
+      [
+        "0xdfffffff",
+        "NOT walking bit 29"
+      ],
+      [
+        "0xbfffffff",
+        "NOT walking bit 30"
+      ],
+      [
+        "0x7fffffff",
+        "NOT walking bit 31"
+      ]
+    ]
+  }
+}

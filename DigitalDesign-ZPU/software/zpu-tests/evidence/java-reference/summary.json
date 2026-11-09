@@ -1,0 +1,467 @@
+{
+  "reference": {
+    "backend": "Zylin original Java simulator (not Questa, team C++ simulator or team RTL)",
+    "repository": "https://github.com/zylin/zpu.git",
+    "commit": "e29aef5f7aa741557d0eb16ecf13e974d55789ff",
+    "jar_path": "zpu/sw/simulator/zpusim.jar",
+    "jar_sha256": "a4ed991ec14bed109bfbd1bb7989860f166700cf11cd52fcfcbe80abe3cfe655",
+    "adapter": "tools/ReferenceRunner.java",
+    "limitations": [
+      "Tier 0 only; no native-vs-emulated trace matching is attempted",
+      "RAM is zero initialized, 32 KiB; initial SP 0x7ff8; no interrupts or devices",
+      "Instruction fetch budget and host wall-clock timeout are distinct",
+      "Adapter invokes a private loop in the pinned upstream simulator; other JAR versions are rejected"
+    ],
+    "adapter_bytecode": {
+      "directory": "tools/java8",
+      "source_sha256": "335e2dac7f214835b93a9ed6972f4c9699e6960be6fbcde9db35cdbc1e13a0b6",
+      "classes": {
+        "ReferenceRunner.class": "0e679ca157d538a1db624cfa54e019ba2681d4e31f0cb0a63f98672f3b782e84",
+        "ReferenceRunner$Cpu.class": "4c67fa4c983820a331977413b23dc77359b680b8c7a2e484cd98adcf5d21063b"
+      }
+    },
+    "bundled_jar_path": "reference/zylin/simulator/zpusim.jar",
+    "bundled_source_path": "reference/zylin/simulator/com",
+    "upstream_license_notice": "reference/zylin/COPYING"
+  },
+  "java_version": "openjdk version \"1.8.0_472\"\nOpenJDK Runtime Environment (Temurin)(build 1.8.0_472-b08)\nOpenJDK 64-Bit Server VM (Temurin)(build 25.472-b08, mixed mode)",
+  "results": [
+    {
+      "name": "immediates",
+      "image_sha256": "ac8935cc493c7001a9640526c63e8288c9bf476412f414f780d1b969707ba77b",
+      "manifest_sha256": "0b9b6402082b8eaef51619028927cf39f91c4bb2c60ce4aaa6fb612f5208f1d4",
+      "adapter_sha256": "335e2dac7f214835b93a9ed6972f4c9699e6960be6fbcde9db35cdbc1e13a0b6",
+      "adapter_classes": {
+        "ReferenceRunner.class": "0e679ca157d538a1db624cfa54e019ba2681d4e31f0cb0a63f98672f3b782e84",
+        "ReferenceRunner$Cpu.class": "4c67fa4c983820a331977413b23dc77359b680b8c7a2e484cd98adcf5d21063b"
+      },
+      "max_instructions": 20000,
+      "command": [
+        "/workspace/zpu-dev/java8-check/jdk8u472-b08-jre/bin/java",
+        "-cp",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/tools/java8:/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/reference/zylin/simulator/zpusim.jar",
+        "ReferenceRunner",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/build/immediates.bin",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/runs/java-ref-v9ceiboz/immediates",
+        "20000"
+      ],
+      "checks": 9,
+      "outcome": "PASS",
+      "failures": []
+    },
+    {
+      "name": "addition",
+      "image_sha256": "5365250885bb4bf46d09a9611d33576431ac7ab3ae40a7392560ab979fdc6593",
+      "manifest_sha256": "0b9b6402082b8eaef51619028927cf39f91c4bb2c60ce4aaa6fb612f5208f1d4",
+      "adapter_sha256": "335e2dac7f214835b93a9ed6972f4c9699e6960be6fbcde9db35cdbc1e13a0b6",
+      "adapter_classes": {
+        "ReferenceRunner.class": "0e679ca157d538a1db624cfa54e019ba2681d4e31f0cb0a63f98672f3b782e84",
+        "ReferenceRunner$Cpu.class": "4c67fa4c983820a331977413b23dc77359b680b8c7a2e484cd98adcf5d21063b"
+      },
+      "max_instructions": 20000,
+      "command": [
+        "/workspace/zpu-dev/java8-check/jdk8u472-b08-jre/bin/java",
+        "-cp",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/tools/java8:/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/reference/zylin/simulator/zpusim.jar",
+        "ReferenceRunner",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/build/addition.bin",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/runs/java-ref-v9ceiboz/addition",
+        "20000"
+      ],
+      "checks": 6,
+      "outcome": "PASS",
+      "failures": []
+    },
+    {
+      "name": "bitwise",
+      "image_sha256": "d8034f77fb6b09c338c5ff2268be259b522bd0c9450bf696b75e5e8e00eeb1d4",
+      "manifest_sha256": "0b9b6402082b8eaef51619028927cf39f91c4bb2c60ce4aaa6fb612f5208f1d4",
+      "adapter_sha256": "335e2dac7f214835b93a9ed6972f4c9699e6960be6fbcde9db35cdbc1e13a0b6",
+      "adapter_classes": {
+        "ReferenceRunner.class": "0e679ca157d538a1db624cfa54e019ba2681d4e31f0cb0a63f98672f3b782e84",
+        "ReferenceRunner$Cpu.class": "4c67fa4c983820a331977413b23dc77359b680b8c7a2e484cd98adcf5d21063b"
+      },
+      "max_instructions": 20000,
+      "command": [
+        "/workspace/zpu-dev/java8-check/jdk8u472-b08-jre/bin/java",
+        "-cp",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/tools/java8:/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/reference/zylin/simulator/zpusim.jar",
+        "ReferenceRunner",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/build/bitwise.bin",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/runs/java-ref-v9ceiboz/bitwise",
+        "20000"
+      ],
+      "checks": 12,
+      "outcome": "PASS",
+      "failures": []
+    },
+    {
+      "name": "memory",
+      "image_sha256": "2fb30e383534746242a3372bc88ecb96c46ec32f8c64fd9c79dfa75bbc6549c1",
+      "manifest_sha256": "0b9b6402082b8eaef51619028927cf39f91c4bb2c60ce4aaa6fb612f5208f1d4",
+      "adapter_sha256": "335e2dac7f214835b93a9ed6972f4c9699e6960be6fbcde9db35cdbc1e13a0b6",
+      "adapter_classes": {
+        "ReferenceRunner.class": "0e679ca157d538a1db624cfa54e019ba2681d4e31f0cb0a63f98672f3b782e84",
+        "ReferenceRunner$Cpu.class": "4c67fa4c983820a331977413b23dc77359b680b8c7a2e484cd98adcf5d21063b"
+      },
+      "max_instructions": 20000,
+      "command": [
+        "/workspace/zpu-dev/java8-check/jdk8u472-b08-jre/bin/java",
+        "-cp",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/tools/java8:/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/reference/zylin/simulator/zpusim.jar",
+        "ReferenceRunner",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/build/memory.bin",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/runs/java-ref-v9ceiboz/memory",
+        "20000"
+      ],
+      "checks": 5,
+      "outcome": "PASS",
+      "failures": []
+    },
+    {
+      "name": "im_patterns",
+      "image_sha256": "250ce70d26601d638ed3a4595bca5ede279326277843590660d5033015d2941c",
+      "manifest_sha256": "0b9b6402082b8eaef51619028927cf39f91c4bb2c60ce4aaa6fb612f5208f1d4",
+      "adapter_sha256": "335e2dac7f214835b93a9ed6972f4c9699e6960be6fbcde9db35cdbc1e13a0b6",
+      "adapter_classes": {
+        "ReferenceRunner.class": "0e679ca157d538a1db624cfa54e019ba2681d4e31f0cb0a63f98672f3b782e84",
+        "ReferenceRunner$Cpu.class": "4c67fa4c983820a331977413b23dc77359b680b8c7a2e484cd98adcf5d21063b"
+      },
+      "max_instructions": 20000,
+      "command": [
+        "/workspace/zpu-dev/java8-check/jdk8u472-b08-jre/bin/java",
+        "-cp",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/tools/java8:/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/reference/zylin/simulator/zpusim.jar",
+        "ReferenceRunner",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/build/im_patterns.bin",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/runs/java-ref-v9ceiboz/im_patterns",
+        "20000"
+      ],
+      "checks": 16,
+      "outcome": "PASS",
+      "failures": []
+    },
+    {
+      "name": "add_carries",
+      "image_sha256": "962861750a6cf4497d9c3df4862ec0eaa73b11f3d856510175ec8e50b48663a2",
+      "manifest_sha256": "0b9b6402082b8eaef51619028927cf39f91c4bb2c60ce4aaa6fb612f5208f1d4",
+      "adapter_sha256": "335e2dac7f214835b93a9ed6972f4c9699e6960be6fbcde9db35cdbc1e13a0b6",
+      "adapter_classes": {
+        "ReferenceRunner.class": "0e679ca157d538a1db624cfa54e019ba2681d4e31f0cb0a63f98672f3b782e84",
+        "ReferenceRunner$Cpu.class": "4c67fa4c983820a331977413b23dc77359b680b8c7a2e484cd98adcf5d21063b"
+      },
+      "max_instructions": 20000,
+      "command": [
+        "/workspace/zpu-dev/java8-check/jdk8u472-b08-jre/bin/java",
+        "-cp",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/tools/java8:/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/reference/zylin/simulator/zpusim.jar",
+        "ReferenceRunner",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/build/add_carries.bin",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/runs/java-ref-v9ceiboz/add_carries",
+        "20000"
+      ],
+      "checks": 32,
+      "outcome": "PASS",
+      "failures": []
+    },
+    {
+      "name": "flip_bits",
+      "image_sha256": "c2b458db3226d213b10c4c080b521ded97a951d332297c6d297edcd9c8be1691",
+      "manifest_sha256": "0b9b6402082b8eaef51619028927cf39f91c4bb2c60ce4aaa6fb612f5208f1d4",
+      "adapter_sha256": "335e2dac7f214835b93a9ed6972f4c9699e6960be6fbcde9db35cdbc1e13a0b6",
+      "adapter_classes": {
+        "ReferenceRunner.class": "0e679ca157d538a1db624cfa54e019ba2681d4e31f0cb0a63f98672f3b782e84",
+        "ReferenceRunner$Cpu.class": "4c67fa4c983820a331977413b23dc77359b680b8c7a2e484cd98adcf5d21063b"
+      },
+      "max_instructions": 20000,
+      "command": [
+        "/workspace/zpu-dev/java8-check/jdk8u472-b08-jre/bin/java",
+        "-cp",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/tools/java8:/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/reference/zylin/simulator/zpusim.jar",
+        "ReferenceRunner",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/build/flip_bits.bin",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/runs/java-ref-v9ceiboz/flip_bits",
+        "20000"
+      ],
+      "checks": 32,
+      "outcome": "PASS",
+      "failures": []
+    },
+    {
+      "name": "stack_pointer",
+      "image_sha256": "6f35900c2a3579da5b1e5116e7cc54c5f59339ffb6121b1478b5da430070c5ef",
+      "manifest_sha256": "0b9b6402082b8eaef51619028927cf39f91c4bb2c60ce4aaa6fb612f5208f1d4",
+      "adapter_sha256": "335e2dac7f214835b93a9ed6972f4c9699e6960be6fbcde9db35cdbc1e13a0b6",
+      "adapter_classes": {
+        "ReferenceRunner.class": "0e679ca157d538a1db624cfa54e019ba2681d4e31f0cb0a63f98672f3b782e84",
+        "ReferenceRunner$Cpu.class": "4c67fa4c983820a331977413b23dc77359b680b8c7a2e484cd98adcf5d21063b"
+      },
+      "max_instructions": 20000,
+      "command": [
+        "/workspace/zpu-dev/java8-check/jdk8u472-b08-jre/bin/java",
+        "-cp",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/tools/java8:/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/reference/zylin/simulator/zpusim.jar",
+        "ReferenceRunner",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/build/stack_pointer.bin",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/runs/java-ref-v9ceiboz/stack_pointer",
+        "20000"
+      ],
+      "checks": 10,
+      "outcome": "PASS",
+      "failures": []
+    },
+    {
+      "name": "loadsp_low",
+      "image_sha256": "85d35268739758adf857f300b0154817dc1fa034bc05ff4fedce4304c49d6e67",
+      "manifest_sha256": "0b9b6402082b8eaef51619028927cf39f91c4bb2c60ce4aaa6fb612f5208f1d4",
+      "adapter_sha256": "335e2dac7f214835b93a9ed6972f4c9699e6960be6fbcde9db35cdbc1e13a0b6",
+      "adapter_classes": {
+        "ReferenceRunner.class": "0e679ca157d538a1db624cfa54e019ba2681d4e31f0cb0a63f98672f3b782e84",
+        "ReferenceRunner$Cpu.class": "4c67fa4c983820a331977413b23dc77359b680b8c7a2e484cd98adcf5d21063b"
+      },
+      "max_instructions": 20000,
+      "command": [
+        "/workspace/zpu-dev/java8-check/jdk8u472-b08-jre/bin/java",
+        "-cp",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/tools/java8:/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/reference/zylin/simulator/zpusim.jar",
+        "ReferenceRunner",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/build/loadsp_low.bin",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/runs/java-ref-v9ceiboz/loadsp_low",
+        "20000"
+      ],
+      "checks": 48,
+      "outcome": "PASS",
+      "failures": []
+    },
+    {
+      "name": "loadsp_high",
+      "image_sha256": "4bc87fc2996f6c6b8f5f251de3d190059720a22ecf67db7c43c91c1608179571",
+      "manifest_sha256": "0b9b6402082b8eaef51619028927cf39f91c4bb2c60ce4aaa6fb612f5208f1d4",
+      "adapter_sha256": "335e2dac7f214835b93a9ed6972f4c9699e6960be6fbcde9db35cdbc1e13a0b6",
+      "adapter_classes": {
+        "ReferenceRunner.class": "0e679ca157d538a1db624cfa54e019ba2681d4e31f0cb0a63f98672f3b782e84",
+        "ReferenceRunner$Cpu.class": "4c67fa4c983820a331977413b23dc77359b680b8c7a2e484cd98adcf5d21063b"
+      },
+      "max_instructions": 20000,
+      "command": [
+        "/workspace/zpu-dev/java8-check/jdk8u472-b08-jre/bin/java",
+        "-cp",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/tools/java8:/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/reference/zylin/simulator/zpusim.jar",
+        "ReferenceRunner",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/build/loadsp_high.bin",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/runs/java-ref-v9ceiboz/loadsp_high",
+        "20000"
+      ],
+      "checks": 48,
+      "outcome": "PASS",
+      "failures": []
+    },
+    {
+      "name": "storesp_low",
+      "image_sha256": "fd4fdc98e0714926d5241c797d14dc90f06227b82c4d2b7c00ad3818bf9ed9ae",
+      "manifest_sha256": "0b9b6402082b8eaef51619028927cf39f91c4bb2c60ce4aaa6fb612f5208f1d4",
+      "adapter_sha256": "335e2dac7f214835b93a9ed6972f4c9699e6960be6fbcde9db35cdbc1e13a0b6",
+      "adapter_classes": {
+        "ReferenceRunner.class": "0e679ca157d538a1db624cfa54e019ba2681d4e31f0cb0a63f98672f3b782e84",
+        "ReferenceRunner$Cpu.class": "4c67fa4c983820a331977413b23dc77359b680b8c7a2e484cd98adcf5d21063b"
+      },
+      "max_instructions": 20000,
+      "command": [
+        "/workspace/zpu-dev/java8-check/jdk8u472-b08-jre/bin/java",
+        "-cp",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/tools/java8:/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/reference/zylin/simulator/zpusim.jar",
+        "ReferenceRunner",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/build/storesp_low.bin",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/runs/java-ref-v9ceiboz/storesp_low",
+        "20000"
+      ],
+      "checks": 48,
+      "outcome": "PASS",
+      "failures": []
+    },
+    {
+      "name": "storesp_high",
+      "image_sha256": "8aa6428e4bc199744881857894372b1647595fd1b8398df44d12c1f6f8dfc019",
+      "manifest_sha256": "0b9b6402082b8eaef51619028927cf39f91c4bb2c60ce4aaa6fb612f5208f1d4",
+      "adapter_sha256": "335e2dac7f214835b93a9ed6972f4c9699e6960be6fbcde9db35cdbc1e13a0b6",
+      "adapter_classes": {
+        "ReferenceRunner.class": "0e679ca157d538a1db624cfa54e019ba2681d4e31f0cb0a63f98672f3b782e84",
+        "ReferenceRunner$Cpu.class": "4c67fa4c983820a331977413b23dc77359b680b8c7a2e484cd98adcf5d21063b"
+      },
+      "max_instructions": 20000,
+      "command": [
+        "/workspace/zpu-dev/java8-check/jdk8u472-b08-jre/bin/java",
+        "-cp",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/tools/java8:/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/reference/zylin/simulator/zpusim.jar",
+        "ReferenceRunner",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/build/storesp_high.bin",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/runs/java-ref-v9ceiboz/storesp_high",
+        "20000"
+      ],
+      "checks": 48,
+      "outcome": "PASS",
+      "failures": []
+    },
+    {
+      "name": "addsp_offsets",
+      "image_sha256": "39f2b2feaa4326f57d615cb0990e06bedb3b63150e9824bef3f10f8712a1a7e3",
+      "manifest_sha256": "0b9b6402082b8eaef51619028927cf39f91c4bb2c60ce4aaa6fb612f5208f1d4",
+      "adapter_sha256": "335e2dac7f214835b93a9ed6972f4c9699e6960be6fbcde9db35cdbc1e13a0b6",
+      "adapter_classes": {
+        "ReferenceRunner.class": "0e679ca157d538a1db624cfa54e019ba2681d4e31f0cb0a63f98672f3b782e84",
+        "ReferenceRunner$Cpu.class": "4c67fa4c983820a331977413b23dc77359b680b8c7a2e484cd98adcf5d21063b"
+      },
+      "max_instructions": 20000,
+      "command": [
+        "/workspace/zpu-dev/java8-check/jdk8u472-b08-jre/bin/java",
+        "-cp",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/tools/java8:/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/reference/zylin/simulator/zpusim.jar",
+        "ReferenceRunner",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/build/addsp_offsets.bin",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/runs/java-ref-v9ceiboz/addsp_offsets",
+        "20000"
+      ],
+      "checks": 48,
+      "outcome": "PASS",
+      "failures": []
+    },
+    {
+      "name": "poppc",
+      "image_sha256": "d7c6e2ff66ee0e1d33219c32e73b3d11a038f5af5da06a3f08fe98c97df8c6bf",
+      "manifest_sha256": "0b9b6402082b8eaef51619028927cf39f91c4bb2c60ce4aaa6fb612f5208f1d4",
+      "adapter_sha256": "335e2dac7f214835b93a9ed6972f4c9699e6960be6fbcde9db35cdbc1e13a0b6",
+      "adapter_classes": {
+        "ReferenceRunner.class": "0e679ca157d538a1db624cfa54e019ba2681d4e31f0cb0a63f98672f3b782e84",
+        "ReferenceRunner$Cpu.class": "4c67fa4c983820a331977413b23dc77359b680b8c7a2e484cd98adcf5d21063b"
+      },
+      "max_instructions": 20000,
+      "command": [
+        "/workspace/zpu-dev/java8-check/jdk8u472-b08-jre/bin/java",
+        "-cp",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/tools/java8:/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/reference/zylin/simulator/zpusim.jar",
+        "ReferenceRunner",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/build/poppc.bin",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/runs/java-ref-v9ceiboz/poppc",
+        "20000"
+      ],
+      "checks": 6,
+      "outcome": "PASS",
+      "failures": []
+    },
+    {
+      "name": "memory_patterns",
+      "image_sha256": "60f54af5bf69372a33923d5970557b0b6e764eb01d928fe09f05f999041c3e32",
+      "manifest_sha256": "0b9b6402082b8eaef51619028927cf39f91c4bb2c60ce4aaa6fb612f5208f1d4",
+      "adapter_sha256": "335e2dac7f214835b93a9ed6972f4c9699e6960be6fbcde9db35cdbc1e13a0b6",
+      "adapter_classes": {
+        "ReferenceRunner.class": "0e679ca157d538a1db624cfa54e019ba2681d4e31f0cb0a63f98672f3b782e84",
+        "ReferenceRunner$Cpu.class": "4c67fa4c983820a331977413b23dc77359b680b8c7a2e484cd98adcf5d21063b"
+      },
+      "max_instructions": 20000,
+      "command": [
+        "/workspace/zpu-dev/java8-check/jdk8u472-b08-jre/bin/java",
+        "-cp",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/tools/java8:/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/reference/zylin/simulator/zpusim.jar",
+        "ReferenceRunner",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/build/memory_patterns.bin",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/runs/java-ref-v9ceiboz/memory_patterns",
+        "20000"
+      ],
+      "checks": 32,
+      "outcome": "PASS",
+      "failures": []
+    },
+    {
+      "name": "nop",
+      "image_sha256": "c7c7324e9d0a651b855a2d002155c15cd7bfa1702930375458da09d75082527b",
+      "manifest_sha256": "0b9b6402082b8eaef51619028927cf39f91c4bb2c60ce4aaa6fb612f5208f1d4",
+      "adapter_sha256": "335e2dac7f214835b93a9ed6972f4c9699e6960be6fbcde9db35cdbc1e13a0b6",
+      "adapter_classes": {
+        "ReferenceRunner.class": "0e679ca157d538a1db624cfa54e019ba2681d4e31f0cb0a63f98672f3b782e84",
+        "ReferenceRunner$Cpu.class": "4c67fa4c983820a331977413b23dc77359b680b8c7a2e484cd98adcf5d21063b"
+      },
+      "max_instructions": 20000,
+      "command": [
+        "/workspace/zpu-dev/java8-check/jdk8u472-b08-jre/bin/java",
+        "-cp",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/tools/java8:/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/reference/zylin/simulator/zpusim.jar",
+        "ReferenceRunner",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/build/nop.bin",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/runs/java-ref-v9ceiboz/nop",
+        "20000"
+      ],
+      "checks": 4,
+      "outcome": "PASS",
+      "failures": []
+    },
+    {
+      "name": "and_bits",
+      "image_sha256": "78089e3101b4537c01c61193d51abc71576e2d40c194a7c9bb0b2bebed2f73a0",
+      "manifest_sha256": "0b9b6402082b8eaef51619028927cf39f91c4bb2c60ce4aaa6fb612f5208f1d4",
+      "adapter_sha256": "335e2dac7f214835b93a9ed6972f4c9699e6960be6fbcde9db35cdbc1e13a0b6",
+      "adapter_classes": {
+        "ReferenceRunner.class": "0e679ca157d538a1db624cfa54e019ba2681d4e31f0cb0a63f98672f3b782e84",
+        "ReferenceRunner$Cpu.class": "4c67fa4c983820a331977413b23dc77359b680b8c7a2e484cd98adcf5d21063b"
+      },
+      "max_instructions": 20000,
+      "command": [
+        "/workspace/zpu-dev/java8-check/jdk8u472-b08-jre/bin/java",
+        "-cp",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/tools/java8:/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/reference/zylin/simulator/zpusim.jar",
+        "ReferenceRunner",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/build/and_bits.bin",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/runs/java-ref-v9ceiboz/and_bits",
+        "20000"
+      ],
+      "checks": 32,
+      "outcome": "PASS",
+      "failures": []
+    },
+    {
+      "name": "or_bits",
+      "image_sha256": "f8fee0fdb40af778e18f7014f59ade6f477ef6db9d44011f76228410f8f9c6c3",
+      "manifest_sha256": "0b9b6402082b8eaef51619028927cf39f91c4bb2c60ce4aaa6fb612f5208f1d4",
+      "adapter_sha256": "335e2dac7f214835b93a9ed6972f4c9699e6960be6fbcde9db35cdbc1e13a0b6",
+      "adapter_classes": {
+        "ReferenceRunner.class": "0e679ca157d538a1db624cfa54e019ba2681d4e31f0cb0a63f98672f3b782e84",
+        "ReferenceRunner$Cpu.class": "4c67fa4c983820a331977413b23dc77359b680b8c7a2e484cd98adcf5d21063b"
+      },
+      "max_instructions": 20000,
+      "command": [
+        "/workspace/zpu-dev/java8-check/jdk8u472-b08-jre/bin/java",
+        "-cp",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/tools/java8:/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/reference/zylin/simulator/zpusim.jar",
+        "ReferenceRunner",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/build/or_bits.bin",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/runs/java-ref-v9ceiboz/or_bits",
+        "20000"
+      ],
+      "checks": 32,
+      "outcome": "PASS",
+      "failures": []
+    },
+    {
+      "name": "not_bits",
+      "image_sha256": "771d7e1b53710abea62c5e215e7cf094341a1e75368f0f24e22278ed9d3a790a",
+      "manifest_sha256": "0b9b6402082b8eaef51619028927cf39f91c4bb2c60ce4aaa6fb612f5208f1d4",
+      "adapter_sha256": "335e2dac7f214835b93a9ed6972f4c9699e6960be6fbcde9db35cdbc1e13a0b6",
+      "adapter_classes": {
+        "ReferenceRunner.class": "0e679ca157d538a1db624cfa54e019ba2681d4e31f0cb0a63f98672f3b782e84",
+        "ReferenceRunner$Cpu.class": "4c67fa4c983820a331977413b23dc77359b680b8c7a2e484cd98adcf5d21063b"
+      },
+      "max_instructions": 20000,
+      "command": [
+        "/workspace/zpu-dev/java8-check/jdk8u472-b08-jre/bin/java",
+        "-cp",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/tools/java8:/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/reference/zylin/simulator/zpusim.jar",
+        "ReferenceRunner",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/build/not_bits.bin",
+        "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/runs/java-ref-v9ceiboz/not_bits",
+        "20000"
+      ],
+      "checks": 32,
+      "outcome": "PASS",
+      "failures": []
+    }
+  ]
+}

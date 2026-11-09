@@ -1,0 +1,23 @@
+runs/
+__pycache__/
+*.pyc
+# Keep prebuilt inputs: a clean clone must run without a ZPU compiler or JDK.
+!build/
+build/*
+!build/*.bin
+!build/*.elf
+!build/*.hex
+!build/*.build.json
+!tools/java8/
+!tools/java8/**
+!reference/
+!reference/**
+reference/zylin/rebuilt/
+!build/emulated/
+build/emulated/*
+!build/emulated/*.bin
+!build/emulated/*.elf
+!build/emulated/*.hex
+!build/emulated/*.build.json
+!tools/emulated-java8/
+!tools/emulated-java8/**

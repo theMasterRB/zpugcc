@@ -1,0 +1,4253 @@
+{
+  "handler_source": "../crt0Stuff/crt0.S",
+  "layout": {
+    "ram_bytes": 32768,
+    "completion_address": "0x1000",
+    "completion_value": "0x5a505530",
+    "result_address": "0x1010"
+  },
+  "entry_pc": "0x2000",
+  "initial_sp": "0x7ff8",
+  "implemented": {
+    "34": "loadh",
+    "35": "storeh",
+    "36": "lessthan",
+    "37": "lessthanorequal",
+    "38": "ulessthan",
+    "39": "ulessthanorequal",
+    "41": "mult",
+    "42": "lshiftright",
+    "43": "ashiftleft",
+    "45": "call",
+    "46": "eq",
+    "47": "neq",
+    "48": "neg",
+    "49": "sub",
+    "50": "xor",
+    "51": "loadb",
+    "52": "storeb",
+    "55": "eqbranch",
+    "56": "neqbranch",
+    "57": "poppcrel",
+    "61": "pushspadd",
+    "63": "callpcrel"
+  },
+  "unimplemented": {
+    "40": "swap",
+    "44": "ashiftright",
+    "53": "div",
+    "54": "mod",
+    "58": "config",
+    "59": "pushpc",
+    "60": "syscall",
+    "62": "halfmult"
+  },
+  "tests": {
+    "lessthan": {
+      "opcode": 36,
+      "expected": [
+        [
+          "0x00000000",
+          "A=0x00000000, B=0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000000, B=0x00000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000000, B=0x00000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x00000001, B=0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000001, B=0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000001, B=0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x00000000, B=0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000000, B=0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000000, B=0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x00000001, B=0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000001, B=0x00000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000001, B=0x00000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x00000002, B=0x00000003"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000002, B=0x00000003: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000002, B=0x00000003: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x00000003, B=0x00000002"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000003, B=0x00000002: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000003, B=0x00000002: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0xffffffff, B=0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "A=0xffffffff, B=0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xffffffff, B=0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x00000001, B=0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000001, B=0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000001, B=0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x80000000, B=0x7fffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0x80000000, B=0x7fffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x80000000, B=0x7fffffff: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x7fffffff, B=0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x7fffffff, B=0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x7fffffff, B=0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x80000000, B=0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x80000000, B=0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x80000000, B=0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0xffffffff, B=0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0xffffffff, B=0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xffffffff, B=0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x80000000, B=0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0x80000000, B=0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x80000000, B=0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0xffffffff, B=0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0xffffffff, B=0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xffffffff, B=0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0xaaaaaaaa, B=0x55555555"
+        ],
+        [
+          "0x000077fc",
+          "A=0xaaaaaaaa, B=0x55555555: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xaaaaaaaa, B=0x55555555: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x01234567, B=0x89abcdef"
+        ],
+        [
+          "0x000077fc",
+          "A=0x01234567, B=0x89abcdef: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x01234567, B=0x89abcdef: lower stack guard preserved"
+        ]
+      ]
+    },
+    "lessthanorequal": {
+      "opcode": 37,
+      "expected": [
+        [
+          "0x00000001",
+          "A=0x00000000, B=0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000000, B=0x00000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000000, B=0x00000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x00000001, B=0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000001, B=0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000001, B=0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x00000000, B=0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000000, B=0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000000, B=0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x00000001, B=0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000001, B=0x00000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000001, B=0x00000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x00000002, B=0x00000003"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000002, B=0x00000003: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000002, B=0x00000003: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x00000003, B=0x00000002"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000003, B=0x00000002: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000003, B=0x00000002: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0xffffffff, B=0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "A=0xffffffff, B=0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xffffffff, B=0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x00000001, B=0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000001, B=0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000001, B=0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x80000000, B=0x7fffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0x80000000, B=0x7fffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x80000000, B=0x7fffffff: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x7fffffff, B=0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x7fffffff, B=0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x7fffffff, B=0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x80000000, B=0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x80000000, B=0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x80000000, B=0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0xffffffff, B=0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0xffffffff, B=0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xffffffff, B=0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x80000000, B=0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0x80000000, B=0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x80000000, B=0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0xffffffff, B=0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0xffffffff, B=0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xffffffff, B=0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0xaaaaaaaa, B=0x55555555"
+        ],
+        [
+          "0x000077fc",
+          "A=0xaaaaaaaa, B=0x55555555: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xaaaaaaaa, B=0x55555555: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x01234567, B=0x89abcdef"
+        ],
+        [
+          "0x000077fc",
+          "A=0x01234567, B=0x89abcdef: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x01234567, B=0x89abcdef: lower stack guard preserved"
+        ]
+      ]
+    },
+    "ulessthan": {
+      "opcode": 38,
+      "expected": [
+        [
+          "0x00000000",
+          "A=0x00000000, B=0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000000, B=0x00000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000000, B=0x00000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x00000001, B=0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000001, B=0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000001, B=0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x00000000, B=0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000000, B=0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000000, B=0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x00000001, B=0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000001, B=0x00000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000001, B=0x00000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x00000002, B=0x00000003"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000002, B=0x00000003: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000002, B=0x00000003: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x00000003, B=0x00000002"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000003, B=0x00000002: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000003, B=0x00000002: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0xffffffff, B=0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "A=0xffffffff, B=0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xffffffff, B=0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x00000001, B=0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000001, B=0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000001, B=0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x80000000, B=0x7fffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0x80000000, B=0x7fffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x80000000, B=0x7fffffff: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x7fffffff, B=0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x7fffffff, B=0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x7fffffff, B=0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x80000000, B=0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x80000000, B=0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x80000000, B=0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0xffffffff, B=0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0xffffffff, B=0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xffffffff, B=0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x80000000, B=0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0x80000000, B=0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x80000000, B=0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0xffffffff, B=0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0xffffffff, B=0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xffffffff, B=0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0xaaaaaaaa, B=0x55555555"
+        ],
+        [
+          "0x000077fc",
+          "A=0xaaaaaaaa, B=0x55555555: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xaaaaaaaa, B=0x55555555: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x01234567, B=0x89abcdef"
+        ],
+        [
+          "0x000077fc",
+          "A=0x01234567, B=0x89abcdef: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x01234567, B=0x89abcdef: lower stack guard preserved"
+        ]
+      ]
+    },
+    "ulessthanorequal": {
+      "opcode": 39,
+      "expected": [
+        [
+          "0x00000001",
+          "A=0x00000000, B=0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000000, B=0x00000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000000, B=0x00000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x00000001, B=0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000001, B=0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000001, B=0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x00000000, B=0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000000, B=0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000000, B=0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x00000001, B=0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000001, B=0x00000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000001, B=0x00000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x00000002, B=0x00000003"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000002, B=0x00000003: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000002, B=0x00000003: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x00000003, B=0x00000002"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000003, B=0x00000002: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000003, B=0x00000002: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0xffffffff, B=0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "A=0xffffffff, B=0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xffffffff, B=0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x00000001, B=0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000001, B=0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000001, B=0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x80000000, B=0x7fffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0x80000000, B=0x7fffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x80000000, B=0x7fffffff: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x7fffffff, B=0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x7fffffff, B=0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x7fffffff, B=0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x80000000, B=0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x80000000, B=0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x80000000, B=0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0xffffffff, B=0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0xffffffff, B=0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xffffffff, B=0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x80000000, B=0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0x80000000, B=0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x80000000, B=0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0xffffffff, B=0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0xffffffff, B=0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xffffffff, B=0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0xaaaaaaaa, B=0x55555555"
+        ],
+        [
+          "0x000077fc",
+          "A=0xaaaaaaaa, B=0x55555555: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xaaaaaaaa, B=0x55555555: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x01234567, B=0x89abcdef"
+        ],
+        [
+          "0x000077fc",
+          "A=0x01234567, B=0x89abcdef: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x01234567, B=0x89abcdef: lower stack guard preserved"
+        ]
+      ]
+    },
+    "mult": {
+      "opcode": 41,
+      "expected": [
+        [
+          "0x00000000",
+          "A=0x00000000, B=0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000000, B=0x00000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000000, B=0x00000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x00000001, B=0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000001, B=0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000001, B=0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x00000000, B=0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000000, B=0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000000, B=0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x00000001, B=0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000001, B=0x00000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000001, B=0x00000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000006",
+          "A=0x00000002, B=0x00000003"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000002, B=0x00000003: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000002, B=0x00000003: lower stack guard preserved"
+        ],
+        [
+          "0x00000006",
+          "A=0x00000003, B=0x00000002"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000003, B=0x00000002: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000003, B=0x00000002: lower stack guard preserved"
+        ],
+        [
+          "0xffffffff",
+          "A=0xffffffff, B=0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "A=0xffffffff, B=0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xffffffff, B=0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0xffffffff",
+          "A=0x00000001, B=0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000001, B=0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000001, B=0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x80000000",
+          "A=0x80000000, B=0x7fffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0x80000000, B=0x7fffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x80000000, B=0x7fffffff: lower stack guard preserved"
+        ],
+        [
+          "0x80000000",
+          "A=0x7fffffff, B=0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x7fffffff, B=0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x7fffffff, B=0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x80000000, B=0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x80000000, B=0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x80000000, B=0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0xffffffff, B=0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0xffffffff, B=0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xffffffff, B=0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x80000000",
+          "A=0x80000000, B=0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0x80000000, B=0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x80000000, B=0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x80000000",
+          "A=0xffffffff, B=0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0xffffffff, B=0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xffffffff, B=0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0x71c71c72",
+          "A=0xaaaaaaaa, B=0x55555555"
+        ],
+        [
+          "0x000077fc",
+          "A=0xaaaaaaaa, B=0x55555555: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xaaaaaaaa, B=0x55555555: lower stack guard preserved"
+        ],
+        [
+          "0xc94e4629",
+          "A=0x01234567, B=0x89abcdef"
+        ],
+        [
+          "0x000077fc",
+          "A=0x01234567, B=0x89abcdef: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x01234567, B=0x89abcdef: lower stack guard preserved"
+        ]
+      ]
+    },
+    "eq": {
+      "opcode": 46,
+      "expected": [
+        [
+          "0x00000001",
+          "A=0x00000000, B=0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000000, B=0x00000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000000, B=0x00000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x00000001, B=0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000001, B=0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000001, B=0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x00000000, B=0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000000, B=0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000000, B=0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x00000001, B=0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000001, B=0x00000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000001, B=0x00000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x00000002, B=0x00000003"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000002, B=0x00000003: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000002, B=0x00000003: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x00000003, B=0x00000002"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000003, B=0x00000002: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000003, B=0x00000002: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0xffffffff, B=0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "A=0xffffffff, B=0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xffffffff, B=0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x00000001, B=0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000001, B=0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000001, B=0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x80000000, B=0x7fffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0x80000000, B=0x7fffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x80000000, B=0x7fffffff: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x7fffffff, B=0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x7fffffff, B=0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x7fffffff, B=0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x80000000, B=0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x80000000, B=0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x80000000, B=0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0xffffffff, B=0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0xffffffff, B=0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xffffffff, B=0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x80000000, B=0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0x80000000, B=0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x80000000, B=0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0xffffffff, B=0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0xffffffff, B=0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xffffffff, B=0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0xaaaaaaaa, B=0x55555555"
+        ],
+        [
+          "0x000077fc",
+          "A=0xaaaaaaaa, B=0x55555555: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xaaaaaaaa, B=0x55555555: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x01234567, B=0x89abcdef"
+        ],
+        [
+          "0x000077fc",
+          "A=0x01234567, B=0x89abcdef: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x01234567, B=0x89abcdef: lower stack guard preserved"
+        ]
+      ]
+    },
+    "neq": {
+      "opcode": 47,
+      "expected": [
+        [
+          "0x00000000",
+          "A=0x00000000, B=0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000000, B=0x00000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000000, B=0x00000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x00000001, B=0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000001, B=0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000001, B=0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x00000000, B=0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000000, B=0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000000, B=0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x00000001, B=0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000001, B=0x00000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000001, B=0x00000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x00000002, B=0x00000003"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000002, B=0x00000003: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000002, B=0x00000003: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x00000003, B=0x00000002"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000003, B=0x00000002: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000003, B=0x00000002: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0xffffffff, B=0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "A=0xffffffff, B=0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xffffffff, B=0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x00000001, B=0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000001, B=0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000001, B=0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x80000000, B=0x7fffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0x80000000, B=0x7fffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x80000000, B=0x7fffffff: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x7fffffff, B=0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x7fffffff, B=0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x7fffffff, B=0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x80000000, B=0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x80000000, B=0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x80000000, B=0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0xffffffff, B=0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0xffffffff, B=0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xffffffff, B=0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x80000000, B=0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0x80000000, B=0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x80000000, B=0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0xffffffff, B=0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0xffffffff, B=0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xffffffff, B=0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0xaaaaaaaa, B=0x55555555"
+        ],
+        [
+          "0x000077fc",
+          "A=0xaaaaaaaa, B=0x55555555: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xaaaaaaaa, B=0x55555555: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x01234567, B=0x89abcdef"
+        ],
+        [
+          "0x000077fc",
+          "A=0x01234567, B=0x89abcdef: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x01234567, B=0x89abcdef: lower stack guard preserved"
+        ]
+      ]
+    },
+    "sub": {
+      "opcode": 49,
+      "expected": [
+        [
+          "0x00000000",
+          "A=0x00000000, B=0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000000, B=0x00000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000000, B=0x00000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x00000001, B=0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000001, B=0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000001, B=0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x00000000, B=0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000000, B=0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000000, B=0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0xffffffff",
+          "A=0x00000001, B=0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000001, B=0x00000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000001, B=0x00000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x00000002, B=0x00000003"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000002, B=0x00000003: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000002, B=0x00000003: lower stack guard preserved"
+        ],
+        [
+          "0xffffffff",
+          "A=0x00000003, B=0x00000002"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000003, B=0x00000002: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000003, B=0x00000002: lower stack guard preserved"
+        ],
+        [
+          "0x00000002",
+          "A=0xffffffff, B=0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "A=0xffffffff, B=0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xffffffff, B=0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0xfffffffe",
+          "A=0x00000001, B=0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000001, B=0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000001, B=0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0xffffffff",
+          "A=0x80000000, B=0x7fffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0x80000000, B=0x7fffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x80000000, B=0x7fffffff: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x7fffffff, B=0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x7fffffff, B=0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x7fffffff, B=0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x80000000, B=0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x80000000, B=0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x80000000, B=0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0xffffffff, B=0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0xffffffff, B=0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xffffffff, B=0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x7fffffff",
+          "A=0x80000000, B=0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0x80000000, B=0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x80000000, B=0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x80000001",
+          "A=0xffffffff, B=0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0xffffffff, B=0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xffffffff, B=0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0xaaaaaaab",
+          "A=0xaaaaaaaa, B=0x55555555"
+        ],
+        [
+          "0x000077fc",
+          "A=0xaaaaaaaa, B=0x55555555: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xaaaaaaaa, B=0x55555555: lower stack guard preserved"
+        ],
+        [
+          "0x88888888",
+          "A=0x01234567, B=0x89abcdef"
+        ],
+        [
+          "0x000077fc",
+          "A=0x01234567, B=0x89abcdef: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x01234567, B=0x89abcdef: lower stack guard preserved"
+        ]
+      ]
+    },
+    "xor": {
+      "opcode": 50,
+      "expected": [
+        [
+          "0x00000000",
+          "A=0x00000000, B=0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000000, B=0x00000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000000, B=0x00000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x00000001, B=0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000001, B=0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000001, B=0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x00000000, B=0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000000, B=0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000000, B=0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x00000001, B=0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000001, B=0x00000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000001, B=0x00000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x00000002, B=0x00000003"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000002, B=0x00000003: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000002, B=0x00000003: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "A=0x00000003, B=0x00000002"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000003, B=0x00000002: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000003, B=0x00000002: lower stack guard preserved"
+        ],
+        [
+          "0xfffffffe",
+          "A=0xffffffff, B=0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "A=0xffffffff, B=0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xffffffff, B=0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0xfffffffe",
+          "A=0x00000001, B=0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0x00000001, B=0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x00000001, B=0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0xffffffff",
+          "A=0x80000000, B=0x7fffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0x80000000, B=0x7fffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x80000000, B=0x7fffffff: lower stack guard preserved"
+        ],
+        [
+          "0xffffffff",
+          "A=0x7fffffff, B=0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x7fffffff, B=0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x7fffffff, B=0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0x80000000, B=0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0x80000000, B=0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x80000000, B=0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "A=0xffffffff, B=0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0xffffffff, B=0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xffffffff, B=0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x7fffffff",
+          "A=0x80000000, B=0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "A=0x80000000, B=0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x80000000, B=0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x7fffffff",
+          "A=0xffffffff, B=0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "A=0xffffffff, B=0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xffffffff, B=0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0xffffffff",
+          "A=0xaaaaaaaa, B=0x55555555"
+        ],
+        [
+          "0x000077fc",
+          "A=0xaaaaaaaa, B=0x55555555: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0xaaaaaaaa, B=0x55555555: lower stack guard preserved"
+        ],
+        [
+          "0x88888888",
+          "A=0x01234567, B=0x89abcdef"
+        ],
+        [
+          "0x000077fc",
+          "A=0x01234567, B=0x89abcdef: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "A=0x01234567, B=0x89abcdef: lower stack guard preserved"
+        ]
+      ]
+    },
+    "neg": {
+      "opcode": 48,
+      "expected": [
+        [
+          "0x00000000",
+          "operand 0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "operand 0x00000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "operand 0x00000000: lower stack guard preserved"
+        ],
+        [
+          "0xffffffff",
+          "operand 0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "operand 0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "operand 0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0xfffffffe",
+          "operand 0x00000002"
+        ],
+        [
+          "0x000077fc",
+          "operand 0x00000002: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "operand 0x00000002: lower stack guard preserved"
+        ],
+        [
+          "0xfffffff1",
+          "operand 0x0000000f"
+        ],
+        [
+          "0x000077fc",
+          "operand 0x0000000f: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "operand 0x0000000f: lower stack guard preserved"
+        ],
+        [
+          "0xfffffff0",
+          "operand 0x00000010"
+        ],
+        [
+          "0x000077fc",
+          "operand 0x00000010: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "operand 0x00000010: lower stack guard preserved"
+        ],
+        [
+          "0xffffffe1",
+          "operand 0x0000001f"
+        ],
+        [
+          "0x000077fc",
+          "operand 0x0000001f: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "operand 0x0000001f: lower stack guard preserved"
+        ],
+        [
+          "0xffffffe0",
+          "operand 0x00000020"
+        ],
+        [
+          "0x000077fc",
+          "operand 0x00000020: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "operand 0x00000020: lower stack guard preserved"
+        ],
+        [
+          "0xffffffc1",
+          "operand 0x0000003f"
+        ],
+        [
+          "0x000077fc",
+          "operand 0x0000003f: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "operand 0x0000003f: lower stack guard preserved"
+        ],
+        [
+          "0x80000001",
+          "operand 0x7fffffff"
+        ],
+        [
+          "0x000077fc",
+          "operand 0x7fffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "operand 0x7fffffff: lower stack guard preserved"
+        ],
+        [
+          "0x80000000",
+          "operand 0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "operand 0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "operand 0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000002",
+          "operand 0xfffffffe"
+        ],
+        [
+          "0x000077fc",
+          "operand 0xfffffffe: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "operand 0xfffffffe: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "operand 0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "operand 0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "operand 0xffffffff: lower stack guard preserved"
+        ]
+      ]
+    },
+    "pushspadd": {
+      "opcode": 61,
+      "expected": [
+        [
+          "0x000077f8",
+          "operand 0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "operand 0x00000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "operand 0x00000000: lower stack guard preserved"
+        ],
+        [
+          "0x000077fc",
+          "operand 0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "operand 0x00000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "operand 0x00000001: lower stack guard preserved"
+        ],
+        [
+          "0x00007800",
+          "operand 0x00000002"
+        ],
+        [
+          "0x000077fc",
+          "operand 0x00000002: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "operand 0x00000002: lower stack guard preserved"
+        ],
+        [
+          "0x00007834",
+          "operand 0x0000000f"
+        ],
+        [
+          "0x000077fc",
+          "operand 0x0000000f: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "operand 0x0000000f: lower stack guard preserved"
+        ],
+        [
+          "0x00007838",
+          "operand 0x00000010"
+        ],
+        [
+          "0x000077fc",
+          "operand 0x00000010: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "operand 0x00000010: lower stack guard preserved"
+        ],
+        [
+          "0x00007874",
+          "operand 0x0000001f"
+        ],
+        [
+          "0x000077fc",
+          "operand 0x0000001f: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "operand 0x0000001f: lower stack guard preserved"
+        ],
+        [
+          "0x00007878",
+          "operand 0x00000020"
+        ],
+        [
+          "0x000077fc",
+          "operand 0x00000020: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "operand 0x00000020: lower stack guard preserved"
+        ],
+        [
+          "0x000078f4",
+          "operand 0x0000003f"
+        ],
+        [
+          "0x000077fc",
+          "operand 0x0000003f: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "operand 0x0000003f: lower stack guard preserved"
+        ],
+        [
+          "0x000077f4",
+          "operand 0x7fffffff"
+        ],
+        [
+          "0x000077fc",
+          "operand 0x7fffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "operand 0x7fffffff: lower stack guard preserved"
+        ],
+        [
+          "0x000077f8",
+          "operand 0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "operand 0x80000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "operand 0x80000000: lower stack guard preserved"
+        ],
+        [
+          "0x000077f0",
+          "operand 0xfffffffe"
+        ],
+        [
+          "0x000077fc",
+          "operand 0xfffffffe: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "operand 0xfffffffe: lower stack guard preserved"
+        ],
+        [
+          "0x000077f4",
+          "operand 0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "operand 0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "operand 0xffffffff: lower stack guard preserved"
+        ]
+      ]
+    },
+    "lshiftright_1": {
+      "opcode": 42,
+      "expected": [
+        [
+          "0x89abcdef",
+          "0x89abcdef, shift count 0"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 0: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 0: lower stack guard preserved"
+        ],
+        [
+          "0x44d5e6f7",
+          "0x89abcdef, shift count 1"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 1: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 1: lower stack guard preserved"
+        ],
+        [
+          "0x226af37b",
+          "0x89abcdef, shift count 2"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 2: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 2: lower stack guard preserved"
+        ],
+        [
+          "0x113579bd",
+          "0x89abcdef, shift count 3"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 3: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 3: lower stack guard preserved"
+        ],
+        [
+          "0x089abcde",
+          "0x89abcdef, shift count 4"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 4: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 4: lower stack guard preserved"
+        ],
+        [
+          "0x044d5e6f",
+          "0x89abcdef, shift count 5"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 5: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 5: lower stack guard preserved"
+        ],
+        [
+          "0x0226af37",
+          "0x89abcdef, shift count 6"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 6: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 6: lower stack guard preserved"
+        ],
+        [
+          "0x0113579b",
+          "0x89abcdef, shift count 7"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 7: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 7: lower stack guard preserved"
+        ],
+        [
+          "0x0089abcd",
+          "0x89abcdef, shift count 8"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 8: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 8: lower stack guard preserved"
+        ],
+        [
+          "0x0044d5e6",
+          "0x89abcdef, shift count 9"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 9: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 9: lower stack guard preserved"
+        ],
+        [
+          "0x00226af3",
+          "0x89abcdef, shift count 10"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 10: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 10: lower stack guard preserved"
+        ],
+        [
+          "0x00113579",
+          "0x89abcdef, shift count 11"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 11: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 11: lower stack guard preserved"
+        ],
+        [
+          "0x00089abc",
+          "0x89abcdef, shift count 12"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 12: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 12: lower stack guard preserved"
+        ],
+        [
+          "0x00044d5e",
+          "0x89abcdef, shift count 13"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 13: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 13: lower stack guard preserved"
+        ],
+        [
+          "0x000226af",
+          "0x89abcdef, shift count 14"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 14: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 14: lower stack guard preserved"
+        ],
+        [
+          "0x00011357",
+          "0x89abcdef, shift count 15"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 15: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 15: lower stack guard preserved"
+        ]
+      ]
+    },
+    "lshiftright_2": {
+      "opcode": 42,
+      "expected": [
+        [
+          "0x000089ab",
+          "0x89abcdef, shift count 16"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 16: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 16: lower stack guard preserved"
+        ],
+        [
+          "0x000044d5",
+          "0x89abcdef, shift count 17"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 17: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 17: lower stack guard preserved"
+        ],
+        [
+          "0x0000226a",
+          "0x89abcdef, shift count 18"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 18: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 18: lower stack guard preserved"
+        ],
+        [
+          "0x00001135",
+          "0x89abcdef, shift count 19"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 19: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 19: lower stack guard preserved"
+        ],
+        [
+          "0x0000089a",
+          "0x89abcdef, shift count 20"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 20: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 20: lower stack guard preserved"
+        ],
+        [
+          "0x0000044d",
+          "0x89abcdef, shift count 21"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 21: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 21: lower stack guard preserved"
+        ],
+        [
+          "0x00000226",
+          "0x89abcdef, shift count 22"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 22: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 22: lower stack guard preserved"
+        ],
+        [
+          "0x00000113",
+          "0x89abcdef, shift count 23"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 23: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 23: lower stack guard preserved"
+        ],
+        [
+          "0x00000089",
+          "0x89abcdef, shift count 24"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 24: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 24: lower stack guard preserved"
+        ],
+        [
+          "0x00000044",
+          "0x89abcdef, shift count 25"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 25: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 25: lower stack guard preserved"
+        ],
+        [
+          "0x00000022",
+          "0x89abcdef, shift count 26"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 26: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 26: lower stack guard preserved"
+        ],
+        [
+          "0x00000011",
+          "0x89abcdef, shift count 27"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 27: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 27: lower stack guard preserved"
+        ],
+        [
+          "0x00000008",
+          "0x89abcdef, shift count 28"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 28: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 28: lower stack guard preserved"
+        ],
+        [
+          "0x00000004",
+          "0x89abcdef, shift count 29"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 29: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 29: lower stack guard preserved"
+        ],
+        [
+          "0x00000002",
+          "0x89abcdef, shift count 30"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 30: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 30: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "0x89abcdef, shift count 31"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 31: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 31: lower stack guard preserved"
+        ]
+      ]
+    },
+    "lshiftright_3": {
+      "opcode": 42,
+      "expected": [
+        [
+          "0x00000000",
+          "0x00000000, shift count 0"
+        ],
+        [
+          "0x000077fc",
+          "0x00000000, shift count 0: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x00000000, shift count 0: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "0x00000000, shift count 1"
+        ],
+        [
+          "0x000077fc",
+          "0x00000000, shift count 1: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x00000000, shift count 1: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "0x00000000, shift count 31"
+        ],
+        [
+          "0x000077fc",
+          "0x00000000, shift count 31: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x00000000, shift count 31: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "0x00000001, shift count 0"
+        ],
+        [
+          "0x000077fc",
+          "0x00000001, shift count 0: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x00000001, shift count 0: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "0x00000001, shift count 1"
+        ],
+        [
+          "0x000077fc",
+          "0x00000001, shift count 1: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x00000001, shift count 1: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "0x00000001, shift count 31"
+        ],
+        [
+          "0x000077fc",
+          "0x00000001, shift count 31: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x00000001, shift count 31: lower stack guard preserved"
+        ],
+        [
+          "0xffffffff",
+          "0xffffffff, shift count 0"
+        ],
+        [
+          "0x000077fc",
+          "0xffffffff, shift count 0: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0xffffffff, shift count 0: lower stack guard preserved"
+        ],
+        [
+          "0x7fffffff",
+          "0xffffffff, shift count 1"
+        ],
+        [
+          "0x000077fc",
+          "0xffffffff, shift count 1: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0xffffffff, shift count 1: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "0xffffffff, shift count 31"
+        ],
+        [
+          "0x000077fc",
+          "0xffffffff, shift count 31: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0xffffffff, shift count 31: lower stack guard preserved"
+        ],
+        [
+          "0x80000000",
+          "0x80000000, shift count 0"
+        ],
+        [
+          "0x000077fc",
+          "0x80000000, shift count 0: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x80000000, shift count 0: lower stack guard preserved"
+        ],
+        [
+          "0x40000000",
+          "0x80000000, shift count 1"
+        ],
+        [
+          "0x000077fc",
+          "0x80000000, shift count 1: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x80000000, shift count 1: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "0x80000000, shift count 31"
+        ],
+        [
+          "0x000077fc",
+          "0x80000000, shift count 31: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x80000000, shift count 31: lower stack guard preserved"
+        ]
+      ]
+    },
+    "ashiftleft_1": {
+      "opcode": 43,
+      "expected": [
+        [
+          "0x89abcdef",
+          "0x89abcdef, shift count 0"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 0: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 0: lower stack guard preserved"
+        ],
+        [
+          "0x13579bde",
+          "0x89abcdef, shift count 1"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 1: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 1: lower stack guard preserved"
+        ],
+        [
+          "0x26af37bc",
+          "0x89abcdef, shift count 2"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 2: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 2: lower stack guard preserved"
+        ],
+        [
+          "0x4d5e6f78",
+          "0x89abcdef, shift count 3"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 3: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 3: lower stack guard preserved"
+        ],
+        [
+          "0x9abcdef0",
+          "0x89abcdef, shift count 4"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 4: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 4: lower stack guard preserved"
+        ],
+        [
+          "0x3579bde0",
+          "0x89abcdef, shift count 5"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 5: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 5: lower stack guard preserved"
+        ],
+        [
+          "0x6af37bc0",
+          "0x89abcdef, shift count 6"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 6: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 6: lower stack guard preserved"
+        ],
+        [
+          "0xd5e6f780",
+          "0x89abcdef, shift count 7"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 7: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 7: lower stack guard preserved"
+        ],
+        [
+          "0xabcdef00",
+          "0x89abcdef, shift count 8"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 8: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 8: lower stack guard preserved"
+        ],
+        [
+          "0x579bde00",
+          "0x89abcdef, shift count 9"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 9: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 9: lower stack guard preserved"
+        ],
+        [
+          "0xaf37bc00",
+          "0x89abcdef, shift count 10"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 10: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 10: lower stack guard preserved"
+        ],
+        [
+          "0x5e6f7800",
+          "0x89abcdef, shift count 11"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 11: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 11: lower stack guard preserved"
+        ],
+        [
+          "0xbcdef000",
+          "0x89abcdef, shift count 12"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 12: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 12: lower stack guard preserved"
+        ],
+        [
+          "0x79bde000",
+          "0x89abcdef, shift count 13"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 13: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 13: lower stack guard preserved"
+        ],
+        [
+          "0xf37bc000",
+          "0x89abcdef, shift count 14"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 14: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 14: lower stack guard preserved"
+        ],
+        [
+          "0xe6f78000",
+          "0x89abcdef, shift count 15"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 15: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 15: lower stack guard preserved"
+        ]
+      ]
+    },
+    "ashiftleft_2": {
+      "opcode": 43,
+      "expected": [
+        [
+          "0xcdef0000",
+          "0x89abcdef, shift count 16"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 16: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 16: lower stack guard preserved"
+        ],
+        [
+          "0x9bde0000",
+          "0x89abcdef, shift count 17"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 17: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 17: lower stack guard preserved"
+        ],
+        [
+          "0x37bc0000",
+          "0x89abcdef, shift count 18"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 18: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 18: lower stack guard preserved"
+        ],
+        [
+          "0x6f780000",
+          "0x89abcdef, shift count 19"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 19: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 19: lower stack guard preserved"
+        ],
+        [
+          "0xdef00000",
+          "0x89abcdef, shift count 20"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 20: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 20: lower stack guard preserved"
+        ],
+        [
+          "0xbde00000",
+          "0x89abcdef, shift count 21"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 21: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 21: lower stack guard preserved"
+        ],
+        [
+          "0x7bc00000",
+          "0x89abcdef, shift count 22"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 22: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 22: lower stack guard preserved"
+        ],
+        [
+          "0xf7800000",
+          "0x89abcdef, shift count 23"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 23: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 23: lower stack guard preserved"
+        ],
+        [
+          "0xef000000",
+          "0x89abcdef, shift count 24"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 24: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 24: lower stack guard preserved"
+        ],
+        [
+          "0xde000000",
+          "0x89abcdef, shift count 25"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 25: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 25: lower stack guard preserved"
+        ],
+        [
+          "0xbc000000",
+          "0x89abcdef, shift count 26"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 26: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 26: lower stack guard preserved"
+        ],
+        [
+          "0x78000000",
+          "0x89abcdef, shift count 27"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 27: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 27: lower stack guard preserved"
+        ],
+        [
+          "0xf0000000",
+          "0x89abcdef, shift count 28"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 28: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 28: lower stack guard preserved"
+        ],
+        [
+          "0xe0000000",
+          "0x89abcdef, shift count 29"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 29: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 29: lower stack guard preserved"
+        ],
+        [
+          "0xc0000000",
+          "0x89abcdef, shift count 30"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 30: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 30: lower stack guard preserved"
+        ],
+        [
+          "0x80000000",
+          "0x89abcdef, shift count 31"
+        ],
+        [
+          "0x000077fc",
+          "0x89abcdef, shift count 31: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x89abcdef, shift count 31: lower stack guard preserved"
+        ]
+      ]
+    },
+    "ashiftleft_3": {
+      "opcode": 43,
+      "expected": [
+        [
+          "0x00000000",
+          "0x00000000, shift count 0"
+        ],
+        [
+          "0x000077fc",
+          "0x00000000, shift count 0: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x00000000, shift count 0: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "0x00000000, shift count 1"
+        ],
+        [
+          "0x000077fc",
+          "0x00000000, shift count 1: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x00000000, shift count 1: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "0x00000000, shift count 31"
+        ],
+        [
+          "0x000077fc",
+          "0x00000000, shift count 31: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x00000000, shift count 31: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "0x00000001, shift count 0"
+        ],
+        [
+          "0x000077fc",
+          "0x00000001, shift count 0: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x00000001, shift count 0: lower stack guard preserved"
+        ],
+        [
+          "0x00000002",
+          "0x00000001, shift count 1"
+        ],
+        [
+          "0x000077fc",
+          "0x00000001, shift count 1: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x00000001, shift count 1: lower stack guard preserved"
+        ],
+        [
+          "0x80000000",
+          "0x00000001, shift count 31"
+        ],
+        [
+          "0x000077fc",
+          "0x00000001, shift count 31: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x00000001, shift count 31: lower stack guard preserved"
+        ],
+        [
+          "0xffffffff",
+          "0xffffffff, shift count 0"
+        ],
+        [
+          "0x000077fc",
+          "0xffffffff, shift count 0: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0xffffffff, shift count 0: lower stack guard preserved"
+        ],
+        [
+          "0xfffffffe",
+          "0xffffffff, shift count 1"
+        ],
+        [
+          "0x000077fc",
+          "0xffffffff, shift count 1: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0xffffffff, shift count 1: lower stack guard preserved"
+        ],
+        [
+          "0x80000000",
+          "0xffffffff, shift count 31"
+        ],
+        [
+          "0x000077fc",
+          "0xffffffff, shift count 31: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0xffffffff, shift count 31: lower stack guard preserved"
+        ],
+        [
+          "0x80000000",
+          "0x80000000, shift count 0"
+        ],
+        [
+          "0x000077fc",
+          "0x80000000, shift count 0: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x80000000, shift count 0: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "0x80000000, shift count 1"
+        ],
+        [
+          "0x000077fc",
+          "0x80000000, shift count 1: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x80000000, shift count 1: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "0x80000000, shift count 31"
+        ],
+        [
+          "0x000077fc",
+          "0x80000000, shift count 31: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "0x80000000, shift count 31: lower stack guard preserved"
+        ]
+      ]
+    },
+    "loadb": {
+      "opcode": 51,
+      "expected": [
+        [
+          "0x00000000",
+          "zero-extended 8-bit lane 0 of 0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 8-bit lane 0 of 0x00000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 8-bit lane 0 of 0x00000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "zero-extended 8-bit lane 1 of 0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 8-bit lane 1 of 0x00000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 8-bit lane 1 of 0x00000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "zero-extended 8-bit lane 2 of 0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 8-bit lane 2 of 0x00000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 8-bit lane 2 of 0x00000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "zero-extended 8-bit lane 3 of 0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 8-bit lane 3 of 0x00000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 8-bit lane 3 of 0x00000000: lower stack guard preserved"
+        ],
+        [
+          "0x000000ff",
+          "zero-extended 8-bit lane 0 of 0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 8-bit lane 0 of 0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 8-bit lane 0 of 0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x000000ff",
+          "zero-extended 8-bit lane 1 of 0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 8-bit lane 1 of 0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 8-bit lane 1 of 0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x000000ff",
+          "zero-extended 8-bit lane 2 of 0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 8-bit lane 2 of 0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 8-bit lane 2 of 0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x000000ff",
+          "zero-extended 8-bit lane 3 of 0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 8-bit lane 3 of 0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 8-bit lane 3 of 0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x00000089",
+          "zero-extended 8-bit lane 0 of 0x89abcdef"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 8-bit lane 0 of 0x89abcdef: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 8-bit lane 0 of 0x89abcdef: lower stack guard preserved"
+        ],
+        [
+          "0x000000ab",
+          "zero-extended 8-bit lane 1 of 0x89abcdef"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 8-bit lane 1 of 0x89abcdef: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 8-bit lane 1 of 0x89abcdef: lower stack guard preserved"
+        ],
+        [
+          "0x000000cd",
+          "zero-extended 8-bit lane 2 of 0x89abcdef"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 8-bit lane 2 of 0x89abcdef: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 8-bit lane 2 of 0x89abcdef: lower stack guard preserved"
+        ],
+        [
+          "0x000000ef",
+          "zero-extended 8-bit lane 3 of 0x89abcdef"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 8-bit lane 3 of 0x89abcdef: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 8-bit lane 3 of 0x89abcdef: lower stack guard preserved"
+        ],
+        [
+          "0x00000080",
+          "zero-extended 8-bit lane 0 of 0x80000001"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 8-bit lane 0 of 0x80000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 8-bit lane 0 of 0x80000001: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "zero-extended 8-bit lane 1 of 0x80000001"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 8-bit lane 1 of 0x80000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 8-bit lane 1 of 0x80000001: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "zero-extended 8-bit lane 2 of 0x80000001"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 8-bit lane 2 of 0x80000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 8-bit lane 2 of 0x80000001: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "zero-extended 8-bit lane 3 of 0x80000001"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 8-bit lane 3 of 0x80000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 8-bit lane 3 of 0x80000001: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "zero-extended 8-bit lane 0 of 0x007f80ff"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 8-bit lane 0 of 0x007f80ff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 8-bit lane 0 of 0x007f80ff: lower stack guard preserved"
+        ],
+        [
+          "0x0000007f",
+          "zero-extended 8-bit lane 1 of 0x007f80ff"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 8-bit lane 1 of 0x007f80ff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 8-bit lane 1 of 0x007f80ff: lower stack guard preserved"
+        ],
+        [
+          "0x00000080",
+          "zero-extended 8-bit lane 2 of 0x007f80ff"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 8-bit lane 2 of 0x007f80ff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 8-bit lane 2 of 0x007f80ff: lower stack guard preserved"
+        ],
+        [
+          "0x000000ff",
+          "zero-extended 8-bit lane 3 of 0x007f80ff"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 8-bit lane 3 of 0x007f80ff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 8-bit lane 3 of 0x007f80ff: lower stack guard preserved"
+        ]
+      ]
+    },
+    "loadh": {
+      "opcode": 34,
+      "expected": [
+        [
+          "0x00000000",
+          "zero-extended 16-bit lane 0 of 0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 16-bit lane 0 of 0x00000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 16-bit lane 0 of 0x00000000: lower stack guard preserved"
+        ],
+        [
+          "0x00000000",
+          "zero-extended 16-bit lane 2 of 0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 16-bit lane 2 of 0x00000000: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 16-bit lane 2 of 0x00000000: lower stack guard preserved"
+        ],
+        [
+          "0x0000ffff",
+          "zero-extended 16-bit lane 0 of 0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 16-bit lane 0 of 0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 16-bit lane 0 of 0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x0000ffff",
+          "zero-extended 16-bit lane 2 of 0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 16-bit lane 2 of 0xffffffff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 16-bit lane 2 of 0xffffffff: lower stack guard preserved"
+        ],
+        [
+          "0x000089ab",
+          "zero-extended 16-bit lane 0 of 0x89abcdef"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 16-bit lane 0 of 0x89abcdef: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 16-bit lane 0 of 0x89abcdef: lower stack guard preserved"
+        ],
+        [
+          "0x0000cdef",
+          "zero-extended 16-bit lane 2 of 0x89abcdef"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 16-bit lane 2 of 0x89abcdef: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 16-bit lane 2 of 0x89abcdef: lower stack guard preserved"
+        ],
+        [
+          "0x00008000",
+          "zero-extended 16-bit lane 0 of 0x80000001"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 16-bit lane 0 of 0x80000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 16-bit lane 0 of 0x80000001: lower stack guard preserved"
+        ],
+        [
+          "0x00000001",
+          "zero-extended 16-bit lane 2 of 0x80000001"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 16-bit lane 2 of 0x80000001: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 16-bit lane 2 of 0x80000001: lower stack guard preserved"
+        ],
+        [
+          "0x0000007f",
+          "zero-extended 16-bit lane 0 of 0x007f80ff"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 16-bit lane 0 of 0x007f80ff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 16-bit lane 0 of 0x007f80ff: lower stack guard preserved"
+        ],
+        [
+          "0x000080ff",
+          "zero-extended 16-bit lane 2 of 0x007f80ff"
+        ],
+        [
+          "0x000077fc",
+          "zero-extended 16-bit lane 2 of 0x007f80ff: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "zero-extended 16-bit lane 2 of 0x007f80ff: lower stack guard preserved"
+        ]
+      ]
+    },
+    "storeb": {
+      "opcode": 52,
+      "expected": [
+        [
+          "0x00abcdef",
+          "8-bit store 0x00000000 at lane 0: merged word, truncation and untouched lanes"
+        ],
+        [
+          "0x000077fc",
+          "8-bit store 0x00000000 at lane 0: merged word, truncation and untouched lanes: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "8-bit store 0x00000000 at lane 0: merged word, truncation and untouched lanes: lower stack guard preserved"
+        ],
+        [
+          "0x11223344",
+          "8-bit store 0x00000000 at lane 0: adjacent word 0x12fc preserved"
+        ],
+        [
+          "0x55667788",
+          "8-bit store 0x00000000 at lane 0: adjacent word 0x1304 preserved"
+        ],
+        [
+          "0x8900cdef",
+          "8-bit store 0x00000000 at lane 1: merged word, truncation and untouched lanes"
+        ],
+        [
+          "0x000077fc",
+          "8-bit store 0x00000000 at lane 1: merged word, truncation and untouched lanes: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "8-bit store 0x00000000 at lane 1: merged word, truncation and untouched lanes: lower stack guard preserved"
+        ],
+        [
+          "0x11223344",
+          "8-bit store 0x00000000 at lane 1: adjacent word 0x12fc preserved"
+        ],
+        [
+          "0x55667788",
+          "8-bit store 0x00000000 at lane 1: adjacent word 0x1304 preserved"
+        ],
+        [
+          "0x89ab00ef",
+          "8-bit store 0x00000000 at lane 2: merged word, truncation and untouched lanes"
+        ],
+        [
+          "0x000077fc",
+          "8-bit store 0x00000000 at lane 2: merged word, truncation and untouched lanes: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "8-bit store 0x00000000 at lane 2: merged word, truncation and untouched lanes: lower stack guard preserved"
+        ],
+        [
+          "0x11223344",
+          "8-bit store 0x00000000 at lane 2: adjacent word 0x12fc preserved"
+        ],
+        [
+          "0x55667788",
+          "8-bit store 0x00000000 at lane 2: adjacent word 0x1304 preserved"
+        ],
+        [
+          "0x89abcd00",
+          "8-bit store 0x00000000 at lane 3: merged word, truncation and untouched lanes"
+        ],
+        [
+          "0x000077fc",
+          "8-bit store 0x00000000 at lane 3: merged word, truncation and untouched lanes: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "8-bit store 0x00000000 at lane 3: merged word, truncation and untouched lanes: lower stack guard preserved"
+        ],
+        [
+          "0x11223344",
+          "8-bit store 0x00000000 at lane 3: adjacent word 0x12fc preserved"
+        ],
+        [
+          "0x55667788",
+          "8-bit store 0x00000000 at lane 3: adjacent word 0x1304 preserved"
+        ],
+        [
+          "0xffabcdef",
+          "8-bit store 0xffffffff at lane 0: merged word, truncation and untouched lanes"
+        ],
+        [
+          "0x000077fc",
+          "8-bit store 0xffffffff at lane 0: merged word, truncation and untouched lanes: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "8-bit store 0xffffffff at lane 0: merged word, truncation and untouched lanes: lower stack guard preserved"
+        ],
+        [
+          "0x11223344",
+          "8-bit store 0xffffffff at lane 0: adjacent word 0x12fc preserved"
+        ],
+        [
+          "0x55667788",
+          "8-bit store 0xffffffff at lane 0: adjacent word 0x1304 preserved"
+        ],
+        [
+          "0x89ffcdef",
+          "8-bit store 0xffffffff at lane 1: merged word, truncation and untouched lanes"
+        ],
+        [
+          "0x000077fc",
+          "8-bit store 0xffffffff at lane 1: merged word, truncation and untouched lanes: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "8-bit store 0xffffffff at lane 1: merged word, truncation and untouched lanes: lower stack guard preserved"
+        ],
+        [
+          "0x11223344",
+          "8-bit store 0xffffffff at lane 1: adjacent word 0x12fc preserved"
+        ],
+        [
+          "0x55667788",
+          "8-bit store 0xffffffff at lane 1: adjacent word 0x1304 preserved"
+        ],
+        [
+          "0x89abffef",
+          "8-bit store 0xffffffff at lane 2: merged word, truncation and untouched lanes"
+        ],
+        [
+          "0x000077fc",
+          "8-bit store 0xffffffff at lane 2: merged word, truncation and untouched lanes: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "8-bit store 0xffffffff at lane 2: merged word, truncation and untouched lanes: lower stack guard preserved"
+        ],
+        [
+          "0x11223344",
+          "8-bit store 0xffffffff at lane 2: adjacent word 0x12fc preserved"
+        ],
+        [
+          "0x55667788",
+          "8-bit store 0xffffffff at lane 2: adjacent word 0x1304 preserved"
+        ],
+        [
+          "0x89abcdff",
+          "8-bit store 0xffffffff at lane 3: merged word, truncation and untouched lanes"
+        ],
+        [
+          "0x000077fc",
+          "8-bit store 0xffffffff at lane 3: merged word, truncation and untouched lanes: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "8-bit store 0xffffffff at lane 3: merged word, truncation and untouched lanes: lower stack guard preserved"
+        ],
+        [
+          "0x11223344",
+          "8-bit store 0xffffffff at lane 3: adjacent word 0x12fc preserved"
+        ],
+        [
+          "0x55667788",
+          "8-bit store 0xffffffff at lane 3: adjacent word 0x1304 preserved"
+        ],
+        [
+          "0x78abcdef",
+          "8-bit store 0x12345678 at lane 0: merged word, truncation and untouched lanes"
+        ],
+        [
+          "0x000077fc",
+          "8-bit store 0x12345678 at lane 0: merged word, truncation and untouched lanes: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "8-bit store 0x12345678 at lane 0: merged word, truncation and untouched lanes: lower stack guard preserved"
+        ],
+        [
+          "0x11223344",
+          "8-bit store 0x12345678 at lane 0: adjacent word 0x12fc preserved"
+        ],
+        [
+          "0x55667788",
+          "8-bit store 0x12345678 at lane 0: adjacent word 0x1304 preserved"
+        ],
+        [
+          "0x8978cdef",
+          "8-bit store 0x12345678 at lane 1: merged word, truncation and untouched lanes"
+        ],
+        [
+          "0x000077fc",
+          "8-bit store 0x12345678 at lane 1: merged word, truncation and untouched lanes: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "8-bit store 0x12345678 at lane 1: merged word, truncation and untouched lanes: lower stack guard preserved"
+        ],
+        [
+          "0x11223344",
+          "8-bit store 0x12345678 at lane 1: adjacent word 0x12fc preserved"
+        ],
+        [
+          "0x55667788",
+          "8-bit store 0x12345678 at lane 1: adjacent word 0x1304 preserved"
+        ],
+        [
+          "0x89ab78ef",
+          "8-bit store 0x12345678 at lane 2: merged word, truncation and untouched lanes"
+        ],
+        [
+          "0x000077fc",
+          "8-bit store 0x12345678 at lane 2: merged word, truncation and untouched lanes: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "8-bit store 0x12345678 at lane 2: merged word, truncation and untouched lanes: lower stack guard preserved"
+        ],
+        [
+          "0x11223344",
+          "8-bit store 0x12345678 at lane 2: adjacent word 0x12fc preserved"
+        ],
+        [
+          "0x55667788",
+          "8-bit store 0x12345678 at lane 2: adjacent word 0x1304 preserved"
+        ],
+        [
+          "0x89abcd78",
+          "8-bit store 0x12345678 at lane 3: merged word, truncation and untouched lanes"
+        ],
+        [
+          "0x000077fc",
+          "8-bit store 0x12345678 at lane 3: merged word, truncation and untouched lanes: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "8-bit store 0x12345678 at lane 3: merged word, truncation and untouched lanes: lower stack guard preserved"
+        ],
+        [
+          "0x11223344",
+          "8-bit store 0x12345678 at lane 3: adjacent word 0x12fc preserved"
+        ],
+        [
+          "0x55667788",
+          "8-bit store 0x12345678 at lane 3: adjacent word 0x1304 preserved"
+        ]
+      ]
+    },
+    "storeh": {
+      "opcode": 35,
+      "expected": [
+        [
+          "0x0000cdef",
+          "16-bit store 0x00000000 at lane 0: merged word, truncation and untouched lanes"
+        ],
+        [
+          "0x000077fc",
+          "16-bit store 0x00000000 at lane 0: merged word, truncation and untouched lanes: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "16-bit store 0x00000000 at lane 0: merged word, truncation and untouched lanes: lower stack guard preserved"
+        ],
+        [
+          "0x11223344",
+          "16-bit store 0x00000000 at lane 0: adjacent word 0x12fc preserved"
+        ],
+        [
+          "0x55667788",
+          "16-bit store 0x00000000 at lane 0: adjacent word 0x1304 preserved"
+        ],
+        [
+          "0x89ab0000",
+          "16-bit store 0x00000000 at lane 2: merged word, truncation and untouched lanes"
+        ],
+        [
+          "0x000077fc",
+          "16-bit store 0x00000000 at lane 2: merged word, truncation and untouched lanes: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "16-bit store 0x00000000 at lane 2: merged word, truncation and untouched lanes: lower stack guard preserved"
+        ],
+        [
+          "0x11223344",
+          "16-bit store 0x00000000 at lane 2: adjacent word 0x12fc preserved"
+        ],
+        [
+          "0x55667788",
+          "16-bit store 0x00000000 at lane 2: adjacent word 0x1304 preserved"
+        ],
+        [
+          "0xffffcdef",
+          "16-bit store 0xffffffff at lane 0: merged word, truncation and untouched lanes"
+        ],
+        [
+          "0x000077fc",
+          "16-bit store 0xffffffff at lane 0: merged word, truncation and untouched lanes: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "16-bit store 0xffffffff at lane 0: merged word, truncation and untouched lanes: lower stack guard preserved"
+        ],
+        [
+          "0x11223344",
+          "16-bit store 0xffffffff at lane 0: adjacent word 0x12fc preserved"
+        ],
+        [
+          "0x55667788",
+          "16-bit store 0xffffffff at lane 0: adjacent word 0x1304 preserved"
+        ],
+        [
+          "0x89abffff",
+          "16-bit store 0xffffffff at lane 2: merged word, truncation and untouched lanes"
+        ],
+        [
+          "0x000077fc",
+          "16-bit store 0xffffffff at lane 2: merged word, truncation and untouched lanes: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "16-bit store 0xffffffff at lane 2: merged word, truncation and untouched lanes: lower stack guard preserved"
+        ],
+        [
+          "0x11223344",
+          "16-bit store 0xffffffff at lane 2: adjacent word 0x12fc preserved"
+        ],
+        [
+          "0x55667788",
+          "16-bit store 0xffffffff at lane 2: adjacent word 0x1304 preserved"
+        ],
+        [
+          "0x5678cdef",
+          "16-bit store 0x12345678 at lane 0: merged word, truncation and untouched lanes"
+        ],
+        [
+          "0x000077fc",
+          "16-bit store 0x12345678 at lane 0: merged word, truncation and untouched lanes: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "16-bit store 0x12345678 at lane 0: merged word, truncation and untouched lanes: lower stack guard preserved"
+        ],
+        [
+          "0x11223344",
+          "16-bit store 0x12345678 at lane 0: adjacent word 0x12fc preserved"
+        ],
+        [
+          "0x55667788",
+          "16-bit store 0x12345678 at lane 0: adjacent word 0x1304 preserved"
+        ],
+        [
+          "0x89ab5678",
+          "16-bit store 0x12345678 at lane 2: merged word, truncation and untouched lanes"
+        ],
+        [
+          "0x000077fc",
+          "16-bit store 0x12345678 at lane 2: merged word, truncation and untouched lanes: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "16-bit store 0x12345678 at lane 2: merged word, truncation and untouched lanes: lower stack guard preserved"
+        ],
+        [
+          "0x11223344",
+          "16-bit store 0x12345678 at lane 2: adjacent word 0x12fc preserved"
+        ],
+        [
+          "0x55667788",
+          "16-bit store 0x12345678 at lane 2: adjacent word 0x1304 preserved"
+        ]
+      ]
+    },
+    "eqbranch": {
+      "opcode": 55,
+      "expected": [
+        [
+          "0x13579bdf",
+          "forward, condition 0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "branch consumes condition and offset"
+        ],
+        [
+          "0x6a09e667",
+          "branch preserves lower stack guard"
+        ],
+        [
+          "0x2468ace0",
+          "forward, condition 0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "branch consumes condition and offset"
+        ],
+        [
+          "0x6a09e667",
+          "branch preserves lower stack guard"
+        ],
+        [
+          "0x2468ace0",
+          "forward, condition 0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "branch consumes condition and offset"
+        ],
+        [
+          "0x6a09e667",
+          "branch preserves lower stack guard"
+        ],
+        [
+          "0x2468ace0",
+          "forward, condition 0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "branch consumes condition and offset"
+        ],
+        [
+          "0x6a09e667",
+          "branch preserves lower stack guard"
+        ],
+        [
+          "0x13579bdf",
+          "backward, condition 0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "branch consumes condition and offset"
+        ],
+        [
+          "0x6a09e667",
+          "branch preserves lower stack guard"
+        ],
+        [
+          "0x2468ace0",
+          "backward, condition 0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "branch consumes condition and offset"
+        ],
+        [
+          "0x6a09e667",
+          "branch preserves lower stack guard"
+        ],
+        [
+          "0x2468ace0",
+          "backward, condition 0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "branch consumes condition and offset"
+        ],
+        [
+          "0x6a09e667",
+          "branch preserves lower stack guard"
+        ],
+        [
+          "0x2468ace0",
+          "backward, condition 0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "branch consumes condition and offset"
+        ],
+        [
+          "0x6a09e667",
+          "branch preserves lower stack guard"
+        ]
+      ]
+    },
+    "neqbranch": {
+      "opcode": 56,
+      "expected": [
+        [
+          "0x2468ace0",
+          "forward, condition 0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "branch consumes condition and offset"
+        ],
+        [
+          "0x6a09e667",
+          "branch preserves lower stack guard"
+        ],
+        [
+          "0x13579bdf",
+          "forward, condition 0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "branch consumes condition and offset"
+        ],
+        [
+          "0x6a09e667",
+          "branch preserves lower stack guard"
+        ],
+        [
+          "0x13579bdf",
+          "forward, condition 0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "branch consumes condition and offset"
+        ],
+        [
+          "0x6a09e667",
+          "branch preserves lower stack guard"
+        ],
+        [
+          "0x13579bdf",
+          "forward, condition 0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "branch consumes condition and offset"
+        ],
+        [
+          "0x6a09e667",
+          "branch preserves lower stack guard"
+        ],
+        [
+          "0x2468ace0",
+          "backward, condition 0x00000000"
+        ],
+        [
+          "0x000077fc",
+          "branch consumes condition and offset"
+        ],
+        [
+          "0x6a09e667",
+          "branch preserves lower stack guard"
+        ],
+        [
+          "0x13579bdf",
+          "backward, condition 0x00000001"
+        ],
+        [
+          "0x000077fc",
+          "branch consumes condition and offset"
+        ],
+        [
+          "0x6a09e667",
+          "branch preserves lower stack guard"
+        ],
+        [
+          "0x13579bdf",
+          "backward, condition 0xffffffff"
+        ],
+        [
+          "0x000077fc",
+          "branch consumes condition and offset"
+        ],
+        [
+          "0x6a09e667",
+          "branch preserves lower stack guard"
+        ],
+        [
+          "0x13579bdf",
+          "backward, condition 0x80000000"
+        ],
+        [
+          "0x000077fc",
+          "branch consumes condition and offset"
+        ],
+        [
+          "0x6a09e667",
+          "branch preserves lower stack guard"
+        ]
+      ]
+    },
+    "poppcrel": {
+      "opcode": 57,
+      "expected": [
+        [
+          "0x13579bdf",
+          "POPPCREL relative_forward"
+        ],
+        [
+          "0x000077fc",
+          "POPPCREL relative_forward: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "POPPCREL relative_forward: lower stack guard preserved"
+        ],
+        [
+          "0x13579bdf",
+          "POPPCREL relative_back"
+        ],
+        [
+          "0x000077fc",
+          "POPPCREL relative_back: remaining guard SP"
+        ],
+        [
+          "0x6a09e667",
+          "POPPCREL relative_back: lower stack guard preserved"
+        ]
+      ]
+    },
+    "call": {
+      "opcode": 45,
+      "expected": [
+        [
+          "0x000077fc",
+          "caller SP restored after nested call"
+        ],
+        [
+          "0x6a09e667",
+          "caller lower stack guard preserved"
+        ],
+        [
+          "symbol:outer_return",
+          "outer callee receives exact PC+1 return address"
+        ],
+        [
+          "0x000077f8",
+          "outer callee SP includes return address"
+        ],
+        [
+          "symbol:outer_return",
+          "nested return preserves outer return address"
+        ],
+        [
+          "symbol:inner_return",
+          "inner callee receives exact PC+1 return address"
+        ],
+        [
+          "0x000077f4",
+          "inner callee SP includes both return addresses"
+        ]
+      ]
+    },
+    "callpcrel": {
+      "opcode": 63,
+      "expected": [
+        [
+          "0x000077fc",
+          "caller SP restored after nested call"
+        ],
+        [
+          "0x6a09e667",
+          "caller lower stack guard preserved"
+        ],
+        [
+          "symbol:outer_return",
+          "outer callee receives exact PC+1 return address"
+        ],
+        [
+          "0x000077f8",
+          "outer callee SP includes return address"
+        ],
+        [
+          "symbol:outer_return",
+          "nested return preserves outer return address"
+        ],
+        [
+          "symbol:inner_return",
+          "inner callee receives exact PC+1 return address"
+        ],
+        [
+          "0x000077f4",
+          "inner callee SP includes both return addresses"
+        ],
+        [
+          "symbol:back_return",
+          "backward relative call PC+1"
+        ],
+        [
+          "0x000077fc",
+          "backward relative call restores caller SP"
+        ],
+        [
+          "0x6a09e667",
+          "backward relative call preserves guard"
+        ]
+      ]
+    }
+  }
+}

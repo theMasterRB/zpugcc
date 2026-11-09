@@ -1,0 +1,11 @@
+{
+  "sources": {
+    "tier0/loadsp_low.S": "f8b65582d29c86c4360d855e4299bc952fe5f5cf9a28f103def026933b128c86",
+    "common/tier0.inc": "d7f31d2b003e7d07b6fe6c457f9194699c0567e25fe3ea7e831ba26621c00051",
+    "common/test.ld": "fca0d5314d82f4cfe8e7751d770beb2486bb30b4d8d384d88eda0b2a2fa3ddd7",
+    "manifest.json": "0b9b6402082b8eaef51619028927cf39f91c4bb2c60ce4aaa6fb612f5208f1d4"
+  },
+  "image_sha256": "85d35268739758adf857f300b0154817dc1fa034bc05ff4fedce4304c49d6e67",
+  "assembler": "/workspace/zpu-dev/source-install/bin/zpu-elf-as",
+  "linker": "/workspace/zpu-dev/source-install/bin/zpu-elf-ld"
+}

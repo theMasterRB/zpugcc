@@ -1,0 +1,2 @@
+# Handler image freshness hashes must survive Git checkouts on Windows too.
+crt0Stuff/crt0.S -text

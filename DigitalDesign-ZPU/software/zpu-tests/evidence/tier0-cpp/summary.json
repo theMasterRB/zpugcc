@@ -1,0 +1,140 @@
+{
+  "backend": "cpp-tier0",
+  "backend_metadata": {
+    "core_sources": {
+      "simulator/zpu_core.cpp": "e90bbfb881aee28aa2b003ed8603c1cb4abd006f5a5615fb4d30b8d709b91ced",
+      "simulator/zpu_core.h": "37d30fdeae619594394a764b43c8d2e7cdc51767f1956159a9ba63a7d76d8503"
+    },
+    "adapter_sha256": "f2383082491c2d61181d185158216fd28ba2268e22a578846ffbce9a8e4c73bb",
+    "executable_sha256": "b366ea1f2486129fc28a5a6cba5962555aee21f8c1a6983f0fd60c847b0980a0",
+    "compile_command": [
+      "/usr/bin/g++",
+      "-std=c++11",
+      "-Wall",
+      "-Wextra",
+      "-O2",
+      "-I",
+      "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/simulator",
+      "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/simulator/zpu_core.cpp",
+      "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/tools/CppRunner.cpp",
+      "-o",
+      "/workspace/zpu-opcode-tests/DigitalDesign-ZPU/software/zpu-tests/runs/tools/cpp-runner"
+    ]
+  },
+  "results": [
+    {
+      "name": "immediates",
+      "outcome": "PASS",
+      "checks": 9,
+      "failures": []
+    },
+    {
+      "name": "addition",
+      "outcome": "PASS",
+      "checks": 6,
+      "failures": []
+    },
+    {
+      "name": "bitwise",
+      "outcome": "PASS",
+      "checks": 12,
+      "failures": []
+    },
+    {
+      "name": "memory",
+      "outcome": "PASS",
+      "checks": 5,
+      "failures": []
+    },
+    {
+      "name": "im_patterns",
+      "outcome": "PASS",
+      "checks": 16,
+      "failures": []
+    },
+    {
+      "name": "add_carries",
+      "outcome": "PASS",
+      "checks": 32,
+      "failures": []
+    },
+    {
+      "name": "flip_bits",
+      "outcome": "PASS",
+      "checks": 32,
+      "failures": []
+    },
+    {
+      "name": "stack_pointer",
+      "outcome": "PASS",
+      "checks": 10,
+      "failures": []
+    },
+    {
+      "name": "loadsp_low",
+      "outcome": "PASS",
+      "checks": 48,
+      "failures": []
+    },
+    {
+      "name": "loadsp_high",
+      "outcome": "PASS",
+      "checks": 48,
+      "failures": []
+    },
+    {
+      "name": "storesp_low",
+      "outcome": "PASS",
+      "checks": 48,
+      "failures": []
+    },
+    {
+      "name": "storesp_high",
+      "outcome": "PASS",
+      "checks": 48,
+      "failures": []
+    },
+    {
+      "name": "addsp_offsets",
+      "outcome": "PASS",
+      "checks": 48,
+      "failures": []
+    },
+    {
+      "name": "poppc",
+      "outcome": "PASS",
+      "checks": 6,
+      "failures": []
+    },
+    {
+      "name": "memory_patterns",
+      "outcome": "PASS",
+      "checks": 32,
+      "failures": []
+    },
+    {
+      "name": "nop",
+      "outcome": "PASS",
+      "checks": 4,
+      "failures": []
+    },
+    {
+      "name": "and_bits",
+      "outcome": "PASS",
+      "checks": 32,
+      "failures": []
+    },
+    {
+      "name": "or_bits",
+      "outcome": "PASS",
+      "checks": 32,
+      "failures": []
+    },
+    {
+      "name": "not_bits",
+      "outcome": "PASS",
+      "checks": 32,
+      "failures": []
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+# Preserve bytes used by freshness/provenance checks across Git checkouts.
+common/** -text
+tier0/** -text
+manifest.json -text
+tools/** -text
+# Upstream source/notice whitespace is preserved verbatim.
+reference/** -text -whitespace
+build/** -text
+build/*.hex -diff
+build/emulated/*.hex -diff
+evidence/** -text
+run_tests.sh text eol=lf
+emulated/** -text
+emulated_cases.json -text
+emulated_manifest.json -text
+emulated_reference.json -text
+run_emulated_tests.sh text eol=lf

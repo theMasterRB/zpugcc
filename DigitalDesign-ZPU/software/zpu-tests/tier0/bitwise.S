@@ -1,0 +1,50 @@
+.include "tier0.inc"
+BEGIN_TEST
+
+PUSH32 0x0f0f0f0f
+PUSH32 0x33333333
+and
+SAVE 0
+PUSH32 0x12345678
+PUSH32 0
+and
+SAVE 1
+PUSH32 0x12345678
+PUSH32 0xffffffff
+and
+SAVE 2
+
+PUSH32 0x0f0f0f0f
+PUSH32 0x33333333
+or
+SAVE 3
+PUSH32 0x12345678
+PUSH32 0
+or
+SAVE 4
+PUSH32 0x12345678
+PUSH32 0xffffffff
+or
+SAVE 5
+
+PUSH32 0
+not
+SAVE 6
+PUSH32 0xffffffff
+not
+SAVE 7
+PUSH32 0x12345678
+not
+SAVE 8
+
+PUSH32 1
+flip
+SAVE 9                         /* reverse bits, NOT bytes */
+PUSH32 0x80000000
+flip
+SAVE 10
+PUSH32 0x01234567
+flip
+SAVE 11
+
+END_TEST

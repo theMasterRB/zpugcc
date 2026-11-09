@@ -1,0 +1,55 @@
+{
+  "reference": {
+    "backend": "Zylin original Java simulator (not Questa, team C++ simulator or team RTL)",
+    "repository": "https://github.com/zylin/zpu.git",
+    "commit": "e29aef5f7aa741557d0eb16ecf13e974d55789ff",
+    "jar_path": "zpu/sw/simulator/zpusim.jar",
+    "jar_sha256": "a4ed991ec14bed109bfbd1bb7989860f166700cf11cd52fcfcbe80abe3cfe655",
+    "adapter": "tools/ReferenceRunner.java",
+    "limitations": [
+      "Tier 0 only; no native-vs-emulated trace matching is attempted",
+      "RAM is zero initialized, 32 KiB; initial SP 0x7ff8; no interrupts or devices",
+      "Instruction fetch budget and host wall-clock timeout are distinct",
+      "Adapter invokes a private loop in the pinned upstream simulator; other JAR versions are rejected"
+    ],
+    "adapter_bytecode": {
+      "directory": "tools/java8",
+      "source_sha256": "335e2dac7f214835b93a9ed6972f4c9699e6960be6fbcde9db35cdbc1e13a0b6",
+      "classes": {
+        "ReferenceRunner.class": "0e679ca157d538a1db624cfa54e019ba2681d4e31f0cb0a63f98672f3b782e84",
+        "ReferenceRunner$Cpu.class": "4c67fa4c983820a331977413b23dc77359b680b8c7a2e484cd98adcf5d21063b"
+      }
+    },
+    "bundled_jar_path": "reference/zylin/simulator/zpusim.jar",
+    "bundled_source_path": "reference/zylin/simulator/com",
+    "upstream_license_notice": "reference/zylin/COPYING"
+  },
+  "negative_cases": [
+    {
+      "name": "wrong_result_add_changed_to_and",
+      "outcome": "REJECTED_AS_EXPECTED",
+      "budget": 20000,
+      "image_sha256": "97ec158a81f4f25a4ef2e34f29c3f40552114ff2d76553db0c4ba18eb452ed76",
+      "failures": [
+        "slot 0 @ 0x1010: 2 + 3; expected 0x00000005, got 0x00000002"
+      ],
+      "execution_error": null
+    },
+    {
+      "name": "early_breakpoint",
+      "outcome": "REJECTED_AS_EXPECTED",
+      "budget": 20000,
+      "image_sha256": "8202fd06600e644eb83eff3cbab65ff3a9c0027d289001848fbd5b5c06fcc20a",
+      "failures": [],
+      "execution_error": "Incomplete execution: completion marker is 0x00000000, not 0x5a505530"
+    },
+    {
+      "name": "instruction_budget",
+      "outcome": "REJECTED_AS_EXPECTED",
+      "budget": 1,
+      "image_sha256": "5365250885bb4bf46d09a9611d33576431ac7ab3ae40a7392560ab979fdc6593",
+      "failures": [],
+      "execution_error": "Execution did not halt normally: 'TIMEOUT instructions=1 cause=MemoryAccessException'"
+    }
+  ]
+}

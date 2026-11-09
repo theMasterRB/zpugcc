@@ -1,0 +1,8 @@
+{
+  "directory": "tools/emulated-java8",
+  "source_sha256": "1f5bf7cfecbc706c85b25d6a8aabf76a37a0265698349e61627911a15a79319d",
+  "classes": {
+    "EmulationRunner.class": "dbe923900a57acbd0784a2c80b69730b9491ffa329d23bf4cb85c0f6349f192e",
+    "EmulationRunner$Cpu.class": "9d12d7e6d474fb287526fd805bfa7eae33f57f3cc9c70a84b2da1bb75e4f4d21"
+  }
+}
