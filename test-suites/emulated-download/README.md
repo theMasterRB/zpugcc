@@ -1,5 +1,14 @@
 # Downloadable ZPU software test kit
 
+[Already have Tier 0? Download only the emulated-opcode test add-on](https://github.com/theMasterRB/zpugcc/blob/test-suite/emulated-opcodes/test-suites/emulated-download/zpu-emulated-opcode-addon.zip?raw=true)
+
+The add-on adds the new test sources, runner, prebuilt images and Java adapter
+to an existing compatible Tier 0 suite. It retains the original tests, shared
+checker, simulator and handlers. Extract it and use its `install.py` with your
+existing `software/zpu-tests` path; see the included README. New test files are
+kept in the separate `emulated/` group. Commit them on a branch based on your
+emulated-opcode branch, then PR back into that branch.
+
 [Download the complete ZIP](https://github.com/theMasterRB/zpugcc/blob/test-suite/emulated-opcodes/test-suites/emulated-download/zpu-software-tests.zip?raw=true)
 
 The ZIP contains the original Tier 0 suite, the new software-handler tests,
