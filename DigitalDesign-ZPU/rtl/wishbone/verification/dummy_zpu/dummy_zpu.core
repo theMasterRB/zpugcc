@@ -1,0 +1,17 @@
+CAPI=2:
+name: socet:bus-components:dummy_zpu:0.0.1
+description: Simple ZPU with write and read using bus_protocol_if for testing bus managers
+
+filesets:
+    rtl:
+        depend:
+            - "socet:bus-components:bus_protocol_if:0.0.1"
+        files:
+            - dummy_zpu.sv
+        file_type: systemVerilogSource
+        
+targets:
+    default:
+        filesets:
+            - rtl
+        toplevel: dummy_zpu

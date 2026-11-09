@@ -1,0 +1,62 @@
+CAPI=2:
+name: socet:bus-components:tb_wb_integration:0.1.0
+description: "Wishbone Dummy Bus System Testbench" 
+
+filesets:
+    tb:
+        depend:
+            - "socet:bus-components:wb_address_decoder:0.1.0"
+            - "socet:bus-components:wb_mux:0.1.0"
+            - "socet:bus-components:wb_master:0.1.0"
+            - "socet:bus-components:wb_slave:0.1.0"
+            - "socet:bus-components:dummy_zpu:0.0.1"
+            - "socet:bus-components:dummy_peripheral:0.0.1"
+            - "socet:bus-components:bus_protocol_if:0.0.1"
+            - "socet:bus-components:wishbone_if:0.0.1"
+        files:
+            - wb_integration/tb_wb_integration.sv
+        file_type: systemVerilogSource
+
+targets:
+    default: &default
+        filesets:
+            - tb
+        toplevel: tb_wb_integration
+
+    sim:
+        <<: *default
+        filesets_append:
+            - tb
+        description: Simulate w/TB
+        default_tool: verilator
+        toplevel: tb_wb_integration
+        tools:
+            xcelium:
+                xrun_options:
+                    - +xmtimescale+1ns/100ps
+            verilator:
+                verilator_options:
+                    - --assert
+                    - --binary
+                    - --trace-fst
+                    - --trace-structs
+                    - -Wno-SYMRSVDWORD
+                    - -Wno-TIMESCALEMOD
+                    - -Wno-lint
+                    - -CFLAGS -std=c++20
+            modelsim:
+                vsim_options:
+                    - -vopt
+                    - -voptargs='+acc'
+                    - -t
+                    - ps
+
+    lint:
+        filesets:
+            - tb
+        description: Linting
+        default_tool: veriblelint
+        toplevel: tb_wb_integration
+        tools:
+            veriblelint:
+                verible_lint_args: ['--rules_config_search']

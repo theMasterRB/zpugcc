@@ -1,0 +1,9 @@
+# Generated build outputs
+/build/
+
+# Generated simulator executable
+/simulator/zpusim
+
+# Python cache
+__pycache__/
+.pytest_cache/

@@ -1,0 +1,29 @@
+
+crt0.o:     file format elf32-zpu
+
+SYMBOL TABLE:
+00000000 l    df *ABS*	00000000 crt0.S
+00000000 l    df *ABS*	00000000 crt0.S
+00000000 l    df *ABS*	00000000 <command line>
+00000000 l    df *ABS*	00000000 <built-in>
+00000000 l    df *ABS*	00000000 crt0.S
+00000000 l    d  .text	00000000 
+00000000 l    d  .data	00000000 
+00000000 l    d  .bss	00000000 
+00000000 l    d  .fixed_vectors	00000000 
+00000080 l       .fixed_vectors	00000000 _lessthan
+000000c0 l       .fixed_vectors	00000000 _ulessthan
+000000e0 l       .fixed_vectors	00000000 _ulessthanorequal
+000001a0 l       .fixed_vectors	00000000 _call
+000001c0 l       .fixed_vectors	00000000 _eq
+000001e0 l       .fixed_vectors	00000000 _neq
+00000200 l       .fixed_vectors	00000000 _neg
+00000220 l       .fixed_vectors	00000000 _sub
+00000240 l       .fixed_vectors	00000000 _xor
+000002e0 l       .fixed_vectors	00000000 _eqbranch
+00000300 l       .fixed_vectors	00000000 _neqbranch
+00000320 l       .fixed_vectors	00000000 _poppcrel
+000003e0 l       .fixed_vectors	00000000 _callpcrel
+00000000 g       .fixed_vectors	00000000 _start
+
+

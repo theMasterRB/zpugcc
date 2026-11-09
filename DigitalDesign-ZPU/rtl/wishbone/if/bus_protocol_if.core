@@ -1,0 +1,25 @@
+CAPI=2:
+name: socet:bus-components:bus_protocol_if:0.0.1
+description: Interface between module and bus protocol
+
+filesets:
+    rtl:
+        files:
+            - bus_protocol_if.sv
+        file_type: systemVerilogSource
+
+targets:
+    default: &default
+        filesets:
+            - rtl
+        toplevel: bus_protocol_if
+
+    sim:
+        <<: *default
+        description: Simulate
+        default_tool: xcelium
+
+    lint:
+        <<: *default
+        description: Linting
+        default_tool: veriblelint

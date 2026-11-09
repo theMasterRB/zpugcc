@@ -1,0 +1,67 @@
+# TODO: run on push/pr, install requirements, run test regressions + trace comparison
+# Every check runs from a script, so `bash scripts/ci.sh` and `bash scripts/lint.sh` reproduce CI locally.
+
+name: ZPU CI
+
+on:
+  pull_request:
+    branches: [main]
+
+  push:
+    branches:
+      - main
+      - 'ci/**'
+      - 'lint-test/**'
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Clean and test simulator
+        run: |
+          make clean
+          bash scripts/ci.sh
+
+      - name: Upload simulator build
+        if: always()
+        timeout-minutes: 3
+        uses: actions/upload-artifact@v3
+        with:
+          name: zpu-sim-build
+          path: |
+            build/zpu_sim
+            build/sim-build.log
+            build/sim-smoke.log
+          if-no-files-found: warn
+
+  lint:
+    runs-on: self-hosted
+
+    continue-on-error: true
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Checks Docker access, builds the CI image, and runs `make lint` in it
+      - name: Lint RTL
+        timeout-minutes: 25
+        run: bash scripts/lint.sh
+
+      # Verilator lint logs for every block in LINT_BLOCKS so other subteams can review warnings and errors
+      - name: Upload lint logs
+        if: always()
+        timeout-minutes: 3
+        uses: actions/upload-artifact@v3
+        with:
+          name: verilator-lint-logs
+          path: build/lint/*.log
+          if-no-files-found: warn
+
+      - name: Generate lint summary
+        if: always()
+        run: make --no-print-directory lint-summary >> "$GITHUB_STEP_SUMMARY"

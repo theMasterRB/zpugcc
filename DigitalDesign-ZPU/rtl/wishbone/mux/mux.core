@@ -1,0 +1,63 @@
+CAPI=2:
+name: socet:bus-components:wb_mux:0.1.0
+description: "Wishbone Master Mux Module and Testbench" 
+
+filesets:
+    rtl:
+        depend:
+            - "socet:bus-components:wishbone_if:0.0.1"
+        files:
+            - src/mux.sv
+        file_type: systemVerilogSource
+
+
+    tb:
+        files:
+            - tb/tb_mux.sv
+        file_type: systemVerilogSource
+
+targets:
+    default: &default
+        filesets:
+            - rtl
+        toplevel: wb_mux
+
+
+    sim:
+        <<: *default
+        filesets_append:
+            - tb
+        description: Simulate w/TB
+        default_tool: verilator
+        toplevel: tb_mux
+        tools:
+            xcelium:
+                xrun_options:
+                    - +xmtimescale+1ns/100ps
+            verilator:
+                verilator_options:
+                    - --assert
+                    - --binary
+                    - --trace-fst
+                    - --trace-structs
+                    - -Wno-SYMRSVDWORD
+                    - -Wno-TIMESCALEMOD
+                    - -Wno-lint
+                    - -CFLAGS -std=c++20
+            modelsim:
+                vsim_options:
+                    - -vopt
+                    - -voptargs='+acc'
+                    - -t
+                    - ps
+
+    lint:
+        filesets:
+            - rtl
+            - tb
+        description: Linting
+        default_tool: veriblelint
+        toplevel: tb_mux
+        tools:
+            veriblelint:
+                verible_lint_args: ['--rules_config_search']

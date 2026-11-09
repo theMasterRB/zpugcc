@@ -1,0 +1,250 @@
+
+crt0.o:     file format elf32-zpu
+
+Disassembly of section .fixed_vectors:
+
+00000000 <_start>:
+	...
+
+00000080 <_lessthan>:
+  80:	71          	loadsp 4
+  81:	81          	im 1
+  82:	0a          	flip
+  83:	05          	add
+  84:	52          	storesp 8
+  85:	72          	loadsp 8
+  86:	81          	im 1
+  87:	0a          	flip
+  88:	05          	add
+  89:	53          	storesp 12
+  8a:	00          	breakpoint
+			8a: ZPU_IM_32	_ulessthan
+  8b:	00          	breakpoint
+  8c:	00          	breakpoint
+  8d:	00          	breakpoint
+  8e:	00          	breakpoint
+  8f:	04          	poppc
+	...
+  a0:	71          	loadsp 4
+  a1:	81          	im 1
+  a2:	0a          	flip
+  a3:	05          	add
+  a4:	52          	storesp 8
+  a5:	72          	loadsp 8
+  a6:	81          	im 1
+  a7:	0a          	flip
+  a8:	05          	add
+  a9:	53          	storesp 12
+  aa:	00          	breakpoint
+			aa: ZPU_IM_32	_ulessthanorequal
+  ab:	00          	breakpoint
+  ac:	00          	breakpoint
+  ad:	00          	breakpoint
+  ae:	00          	breakpoint
+  af:	04          	poppc
+	...
+
+000000c0 <_ulessthan>:
+  c0:	71          	loadsp 4
+  c1:	09          	not
+  c2:	73          	loadsp 12
+  c3:	07          	or
+  c4:	72          	loadsp 8
+  c5:	74          	loadsp 16
+  c6:	09          	not
+  c7:	81          	im 1
+  c8:	05          	add
+  c9:	05          	add
+  ca:	06          	and
+  cb:	72          	loadsp 8
+  cc:	09          	not
+  cd:	74          	loadsp 16
+  ce:	06          	and
+  cf:	07          	or
+  d0:	0a          	flip
+  d1:	81          	im 1
+  d2:	06          	and
+  d3:	53          	storesp 12
+  d4:	51          	storesp 4
+  d5:	04          	poppc
+	...
+
+000000e0 <_ulessthanorequal>:
+  e0:	72          	loadsp 8
+  e1:	09          	not
+  e2:	72          	loadsp 8
+  e3:	07          	or
+  e4:	73          	loadsp 12
+  e5:	73          	loadsp 12
+  e6:	09          	not
+  e7:	81          	im 1
+  e8:	05          	add
+  e9:	05          	add
+  ea:	06          	and
+  eb:	73          	loadsp 12
+  ec:	09          	not
+  ed:	73          	loadsp 12
+  ee:	06          	and
+  ef:	07          	or
+  f0:	0a          	flip
+  f1:	81          	im 1
+  f2:	06          	and
+  f3:	80          	im 0
+  f4:	2e          	eq
+  f5:	53          	storesp 12
+  f6:	51          	storesp 4
+  f7:	04          	poppc
+	...
+
+000001a0 <_call>:
+ 1a0:	71          	loadsp 4
+ 1a1:	71          	loadsp 4
+ 1a2:	53          	storesp 12
+ 1a3:	51          	storesp 4
+ 1a4:	04          	poppc
+	...
+
+000001c0 <_eq>:
+ 1c0:	71          	loadsp 4
+ 1c1:	73          	loadsp 12
+ 1c2:	09          	not
+ 1c3:	81          	im 1
+ 1c4:	05          	add
+ 1c5:	05          	add
+ 1c6:	70          	loadsp 0
+ 1c7:	09          	not
+ 1c8:	81          	im 1
+ 1c9:	05          	add
+ 1ca:	07          	or
+ 1cb:	09          	not
+ 1cc:	0a          	flip
+ 1cd:	81          	im 1
+ 1ce:	06          	and
+ 1cf:	53          	storesp 12
+ 1d0:	51          	storesp 4
+ 1d1:	04          	poppc
+	...
+
+000001e0 <_neq>:
+ 1e0:	71          	loadsp 4
+ 1e1:	73          	loadsp 12
+ 1e2:	2e          	eq
+ 1e3:	80          	im 0
+ 1e4:	2e          	eq
+ 1e5:	53          	storesp 12
+ 1e6:	51          	storesp 4
+ 1e7:	04          	poppc
+	...
+
+00000200 <_neg>:
+ 200:	71          	loadsp 4
+ 201:	09          	not
+ 202:	81          	im 1
+ 203:	05          	add
+ 204:	52          	storesp 8
+ 205:	04          	poppc
+	...
+
+00000220 <_sub>:
+ 220:	72          	loadsp 8
+ 221:	72          	loadsp 8
+ 222:	09          	not
+ 223:	81          	im 1
+ 224:	05          	add
+ 225:	05          	add
+ 226:	53          	storesp 12
+ 227:	51          	storesp 4
+ 228:	04          	poppc
+	...
+
+00000240 <_xor>:
+ 240:	71          	loadsp 4
+ 241:	73          	loadsp 12
+ 242:	07          	or
+ 243:	72          	loadsp 8
+ 244:	74          	loadsp 16
+ 245:	06          	and
+ 246:	09          	not
+ 247:	06          	and
+ 248:	53          	storesp 12
+ 249:	51          	storesp 4
+ 24a:	04          	poppc
+	...
+
+000002e0 <_eqbranch>:
+ 2e0:	72          	loadsp 8
+ 2e1:	70          	loadsp 0
+ 2e2:	09          	not
+ 2e3:	81          	im 1
+ 2e4:	05          	add
+ 2e5:	07          	or
+ 2e6:	09          	not
+ 2e7:	0a          	flip
+ 2e8:	81          	im 1
+ 2e9:	06          	and
+ 2ea:	09          	not
+ 2eb:	81          	im 1
+ 2ec:	05          	add
+ 2ed:	72          	loadsp 8
+ 2ee:	ff          	im -1
+ 2ef:	05          	add
+ 2f0:	06          	and
+ 2f1:	71          	loadsp 4
+ 2f2:	05          	add
+ 2f3:	53          	storesp 12
+ 2f4:	02          	pushsp
+ 2f5:	88          	im 8
+ 2f6:	05          	add
+ 2f7:	0d          	popsp
+ 2f8:	04          	poppc
+ 2f9:	00          	breakpoint
+ 2fa:	00          	breakpoint
+ 2fb:	00          	breakpoint
+ 2fc:	00          	breakpoint
+ 2fd:	00          	breakpoint
+	...
+
+00000300 <_neqbranch>:
+ 300:	72          	loadsp 8
+ 301:	70          	loadsp 0
+ 302:	09          	not
+ 303:	81          	im 1
+ 304:	05          	add
+ 305:	07          	or
+ 306:	0a          	flip
+ 307:	81          	im 1
+ 308:	06          	and
+ 309:	09          	not
+ 30a:	81          	im 1
+ 30b:	05          	add
+ 30c:	72          	loadsp 8
+ 30d:	ff          	im -1
+ 30e:	05          	add
+ 30f:	06          	and
+ 310:	71          	loadsp 4
+ 311:	05          	add
+ 312:	53          	storesp 12
+ 313:	02          	pushsp
+ 314:	88          	im 8
+ 315:	05          	add
+ 316:	0d          	popsp
+ 317:	04          	poppc
+	...
+
+00000320 <_poppcrel>:
+ 320:	05          	add
+ 321:	ff          	im -1
+ 322:	05          	add
+ 323:	04          	poppc
+	...
+
+000003e0 <_callpcrel>:
+ 3e0:	71          	loadsp 4
+ 3e1:	71          	loadsp 4
+ 3e2:	05          	add
+ 3e3:	ff          	im -1
+ 3e4:	05          	add
+ 3e5:	71          	loadsp 4
+ 3e6:	53          	storesp 12
+ 3e7:	51          	storesp 4
+ 3e8:	04          	poppc

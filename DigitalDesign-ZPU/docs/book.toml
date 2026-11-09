@@ -1,0 +1,5 @@
+[book]
+authors = ["Digital Design ZPU"]
+language = "en"
+src = "src"
+title = "ZPU Documentation"
