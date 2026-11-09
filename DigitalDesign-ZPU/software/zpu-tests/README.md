@@ -1,5 +1,10 @@
 # ZPU instruction tests and bundled reference simulator
 
+For separate hardware/software branches, use the independent software suite in
+[`../zpu-emulated-tests`](../zpu-emulated-tests). It has all of its own runtime
+files and does not require this folder. This combined layout is retained for
+existing installations.
+
 A self-contained correctness baseline for the required ZPU hardware instructions:
 **19 assembly programs and 500 externally checked result words**, plus the
 original Zylin Java simulator and its source. The expanded package also adds
@@ -129,7 +134,7 @@ python3 -m unittest discover -s checks -v
 python3 tools/check_negative_runs.py
 ```
 
-Expect 24 host tests to pass and three `REJECTED AS EXPECTED` messages. The latter
+Expect 27 host tests to pass and three `REJECTED AS EXPECTED` messages. The latter
 uses corrupted PROGRAMS / incomplete execution, not mutant CPU cores.
 
 ## Standalone test platform

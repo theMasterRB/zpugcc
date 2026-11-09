@@ -3,9 +3,12 @@
 These host fixtures test the judge. They are not additional CPU executions.
 """
 from pathlib import Path
+from contextlib import redirect_stdout
+import io
 import sys
 import tempfile
 import unittest
+from unittest import mock
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 import run_emulated as runner
@@ -68,6 +71,45 @@ class EmulationTraceTests(unittest.TestCase):
         self.rows[-1][2] += 1
         with self.assertRaisesRegex(ValueError, "invalid state"):
             self.validate()
+
+
+class IndependentCliTests(unittest.TestCase):
+    def test_handler_line_endings_are_portable_but_code_changes_are_detected(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / "emulated_cases.json").write_text('{"handler_source": "crt0.S"}')
+            handler = root / "crt0.S"
+            with mock.patch.object(runner, "ROOT", root):
+                handler.write_bytes(b"loadsp 4\npoppc\n")
+                expected = runner.handler_digest()
+                handler.write_bytes(b"loadsp 4\r\npoppc\r\n")
+                self.assertEqual(runner.handler_digest(), expected)
+                handler.write_bytes(b"loadsp 8\r\npoppc\r\n")
+                self.assertNotEqual(runner.handler_digest(), expected)
+
+    def check_help(self, include_native):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / "emulated_cases.json").write_text('{"tests": {"eq": {}}}')
+            if include_native:
+                (root / "tier0").mkdir()
+                (root / "manifest.json").write_text(
+                    '{"tests": {"native": [["0x00000000", "fixture"]]}}')
+            output = io.StringIO()
+            with mock.patch.object(runner, "ROOT", root), \
+                    mock.patch.object(runner.tier0, "ROOT", root), \
+                    mock.patch.object(sys, "argv", ["run_emulated.py", "--help"]), \
+                    redirect_stdout(output):
+                with self.assertRaises(SystemExit) as stopped:
+                    runner.main()
+            self.assertEqual(stopped.exception.code, 0)
+            self.assertEqual("cpp-tier0" in output.getvalue(), include_native)
+
+    def test_cli_runs_without_original_hardware_suite(self):
+        self.check_help(False)
+
+    def test_combined_suite_retains_optional_native_command(self):
+        self.check_help(True)
 
 
 if __name__ == "__main__":

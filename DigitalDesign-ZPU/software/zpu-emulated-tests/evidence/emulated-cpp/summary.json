@@ -1,0 +1,221 @@
+{
+  "backend": "cpp",
+  "backend_metadata": {
+    "core_sources": {
+      "simulator/zpu_core.cpp": "e90bbfb881aee28aa2b003ed8603c1cb4abd006f5a5615fb4d30b8d709b91ced",
+      "simulator/zpu_core.h": "37d30fdeae619594394a764b43c8d2e7cdc51767f1956159a9ba63a7d76d8503"
+    },
+    "adapter_sha256": "f2383082491c2d61181d185158216fd28ba2268e22a578846ffbce9a8e4c73bb",
+    "executable_sha256": "b366ea1f2486129fc28a5a6cba5962555aee21f8c1a6983f0fd60c847b0980a0",
+    "compile_command": [
+      "/usr/bin/g++",
+      "-std=c++11",
+      "-Wall",
+      "-Wextra",
+      "-O2",
+      "-I",
+      "/tmp/zpu-independent-dwbt7us8/simulator",
+      "/tmp/zpu-independent-dwbt7us8/simulator/zpu_core.cpp",
+      "/tmp/zpu-independent-dwbt7us8/software/zpu-emulated-tests/tools/CppRunner.cpp",
+      "-o",
+      "/tmp/zpu-independent-dwbt7us8/software/zpu-emulated-tests/runs/tools/cpp-runner"
+    ]
+  },
+  "handler_sha256": "50869dede1db6dad209247fc01489e5a6301f96d79253c9ed8d8ce872ad687ed",
+  "manifest_sha256": "e7e870417751437eaf17512ac3c094791d881ba5a31e67bf6307c249a854a1c6",
+  "max_instructions": 200000,
+  "not_implemented": {
+    "40": "swap",
+    "44": "ashiftright",
+    "53": "div",
+    "54": "mod",
+    "58": "config",
+    "59": "pushpc",
+    "60": "syscall",
+    "62": "halfmult"
+  },
+  "results": [
+    {
+      "name": "lessthan",
+      "outcome": "PASS",
+      "checks": 48,
+      "failures": [],
+      "instructions": 1922
+    },
+    {
+      "name": "lessthanorequal",
+      "outcome": "PASS",
+      "checks": 48,
+      "failures": [],
+      "instructions": 2242
+    },
+    {
+      "name": "ulessthan",
+      "outcome": "PASS",
+      "checks": 48,
+      "failures": [],
+      "instructions": 1666
+    },
+    {
+      "name": "ulessthanorequal",
+      "outcome": "PASS",
+      "checks": 48,
+      "failures": [],
+      "instructions": 1986
+    },
+    {
+      "name": "mult",
+      "outcome": "PASS",
+      "checks": 48,
+      "failures": [],
+      "instructions": 13628
+    },
+    {
+      "name": "eq",
+      "outcome": "PASS",
+      "checks": 48,
+      "failures": [],
+      "instructions": 1602
+    },
+    {
+      "name": "neq",
+      "outcome": "PASS",
+      "checks": 48,
+      "failures": [],
+      "instructions": 2018
+    },
+    {
+      "name": "sub",
+      "outcome": "PASS",
+      "checks": 48,
+      "failures": [],
+      "instructions": 1458
+    },
+    {
+      "name": "xor",
+      "outcome": "PASS",
+      "checks": 48,
+      "failures": [],
+      "instructions": 1490
+    },
+    {
+      "name": "neg",
+      "outcome": "PASS",
+      "checks": 36,
+      "failures": [],
+      "instructions": 994
+    },
+    {
+      "name": "pushspadd",
+      "outcome": "PASS",
+      "checks": 36,
+      "failures": [],
+      "instructions": 1030
+    },
+    {
+      "name": "lshiftright_1",
+      "outcome": "PASS",
+      "checks": 48,
+      "failures": [],
+      "instructions": 1834
+    },
+    {
+      "name": "lshiftright_2",
+      "outcome": "PASS",
+      "checks": 48,
+      "failures": [],
+      "instructions": 2090
+    },
+    {
+      "name": "lshiftright_3",
+      "outcome": "PASS",
+      "checks": 36,
+      "failures": [],
+      "instructions": 1422
+    },
+    {
+      "name": "ashiftleft_1",
+      "outcome": "PASS",
+      "checks": 48,
+      "failures": [],
+      "instructions": 1706
+    },
+    {
+      "name": "ashiftleft_2",
+      "outcome": "PASS",
+      "checks": 48,
+      "failures": [],
+      "instructions": 1962
+    },
+    {
+      "name": "ashiftleft_3",
+      "outcome": "PASS",
+      "checks": 36,
+      "failures": [],
+      "instructions": 1326
+    },
+    {
+      "name": "loadb",
+      "outcome": "PASS",
+      "checks": 60,
+      "failures": [],
+      "instructions": 2934
+    },
+    {
+      "name": "loadh",
+      "outcome": "PASS",
+      "checks": 30,
+      "failures": [],
+      "instructions": 1454
+    },
+    {
+      "name": "storeb",
+      "outcome": "PASS",
+      "checks": 60,
+      "failures": [],
+      "instructions": 3454
+    },
+    {
+      "name": "storeh",
+      "outcome": "PASS",
+      "checks": 30,
+      "failures": [],
+      "instructions": 1708
+    },
+    {
+      "name": "eqbranch",
+      "outcome": "PASS",
+      "checks": 24,
+      "failures": [],
+      "instructions": 994
+    },
+    {
+      "name": "neqbranch",
+      "outcome": "PASS",
+      "checks": 24,
+      "failures": [],
+      "instructions": 986
+    },
+    {
+      "name": "poppcrel",
+      "outcome": "PASS",
+      "checks": 6,
+      "failures": [],
+      "instructions": 220
+    },
+    {
+      "name": "call",
+      "outcome": "PASS",
+      "checks": 7,
+      "failures": [],
+      "instructions": 222
+    },
+    {
+      "name": "callpcrel",
+      "outcome": "PASS",
+      "checks": 10,
+      "failures": [],
+      "instructions": 324
+    }
+  ]
+}

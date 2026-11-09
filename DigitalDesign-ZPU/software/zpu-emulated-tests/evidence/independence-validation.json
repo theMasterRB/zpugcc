@@ -1,0 +1,28 @@
+{
+  "software_suite_alone": {
+    "hardware_folder_present": false,
+    "native_manifest_present": false,
+    "native_programs_present": false,
+    "programs": 26,
+    "checks": 1019,
+    "java8": "PASS",
+    "team_cpp": "PASS",
+    "source_build": "PASS",
+    "negative_executions_rejected": 5,
+    "host_tests_passed": 11
+  },
+  "hardware_suite_alone": {
+    "programs": 19,
+    "checks": 500,
+    "java8": "PASS"
+  },
+  "side_by_side": {
+    "hardware_immediates": "PASS: 9 checks",
+    "software_eq": "PASS: 48 checks"
+  },
+  "release_regeneration_without_hardware_suite": "PASS",
+  "handler_source": "../crt0Stuff/crt0.S",
+  "handler_sha256": "50869dede1db6dad209247fc01489e5a6301f96d79253c9ed8d8ce872ad687ed",
+  "limitations": "Executed in Linux cloud workspace; no Mac host or RTL run is claimed.",
+  "handler_line_endings": "LF/CRLF normalized; code changes remain detected"
+}

@@ -1,0 +1,138 @@
+{
+  "left": "evidence/emulated-java8",
+  "right": "evidence/emulated-cpp",
+  "results": [
+    {
+      "name": "lessthan",
+      "outcome": "MATCH",
+      "instruction_rows": 1922
+    },
+    {
+      "name": "lessthanorequal",
+      "outcome": "MATCH",
+      "instruction_rows": 2242
+    },
+    {
+      "name": "ulessthan",
+      "outcome": "MATCH",
+      "instruction_rows": 1666
+    },
+    {
+      "name": "ulessthanorequal",
+      "outcome": "MATCH",
+      "instruction_rows": 1986
+    },
+    {
+      "name": "mult",
+      "outcome": "MATCH",
+      "instruction_rows": 13628
+    },
+    {
+      "name": "eq",
+      "outcome": "MATCH",
+      "instruction_rows": 1602
+    },
+    {
+      "name": "neq",
+      "outcome": "MATCH",
+      "instruction_rows": 2018
+    },
+    {
+      "name": "sub",
+      "outcome": "MATCH",
+      "instruction_rows": 1458
+    },
+    {
+      "name": "xor",
+      "outcome": "MATCH",
+      "instruction_rows": 1490
+    },
+    {
+      "name": "neg",
+      "outcome": "MATCH",
+      "instruction_rows": 994
+    },
+    {
+      "name": "pushspadd",
+      "outcome": "MATCH",
+      "instruction_rows": 1030
+    },
+    {
+      "name": "lshiftright_1",
+      "outcome": "MATCH",
+      "instruction_rows": 1834
+    },
+    {
+      "name": "lshiftright_2",
+      "outcome": "MATCH",
+      "instruction_rows": 2090
+    },
+    {
+      "name": "lshiftright_3",
+      "outcome": "MATCH",
+      "instruction_rows": 1422
+    },
+    {
+      "name": "ashiftleft_1",
+      "outcome": "MATCH",
+      "instruction_rows": 1706
+    },
+    {
+      "name": "ashiftleft_2",
+      "outcome": "MATCH",
+      "instruction_rows": 1962
+    },
+    {
+      "name": "ashiftleft_3",
+      "outcome": "MATCH",
+      "instruction_rows": 1326
+    },
+    {
+      "name": "loadb",
+      "outcome": "MATCH",
+      "instruction_rows": 2934
+    },
+    {
+      "name": "loadh",
+      "outcome": "MATCH",
+      "instruction_rows": 1454
+    },
+    {
+      "name": "storeb",
+      "outcome": "MATCH",
+      "instruction_rows": 3454
+    },
+    {
+      "name": "storeh",
+      "outcome": "MATCH",
+      "instruction_rows": 1708
+    },
+    {
+      "name": "eqbranch",
+      "outcome": "MATCH",
+      "instruction_rows": 994
+    },
+    {
+      "name": "neqbranch",
+      "outcome": "MATCH",
+      "instruction_rows": 986
+    },
+    {
+      "name": "poppcrel",
+      "outcome": "MATCH",
+      "instruction_rows": 220
+    },
+    {
+      "name": "call",
+      "outcome": "MATCH",
+      "instruction_rows": 222
+    },
+    {
+      "name": "callpcrel",
+      "outcome": "MATCH",
+      "instruction_rows": 324
+    }
+  ],
+  "handler_sha256": "50869dede1db6dad209247fc01489e5a6301f96d79253c9ed8d8ce872ad687ed",
+  "manifest_sha256": "e7e870417751437eaf17512ac3c094791d881ba5a31e67bf6307c249a854a1c6"
+}

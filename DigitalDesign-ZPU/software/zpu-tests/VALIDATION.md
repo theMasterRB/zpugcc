@@ -12,7 +12,7 @@ versions, not untested later changes, Questa or RTL.
 | Forced software-handler execution on Java 8 | 26 programs / 1,019 result checks PASS |
 | Actual software-handler execution on team C++ core | 26 programs / 1,019 result checks PASS |
 | Complete Java/C++ handler traces | All 26 match, including PC, opcode, SP, TOS and NOS |
-| Host checker tests | 24 PASS; these are not CPU executions |
+| Host checker tests | 27 PASS; these are not CPU executions |
 | Broken EQ handler | REJECTED: missing completion |
 | Exhausted instruction budget | REJECTED: TIMEOUT |
 | Mutant C++ core skips an expected-zero result write | REJECTED: exactly slot 6 remains poisoned |

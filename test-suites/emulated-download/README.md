@@ -1,5 +1,24 @@
 # Downloadable ZPU software test kit
 
+[Download the independent emulated-opcode suite](https://github.com/theMasterRB/zpugcc/blob/test-suite/emulated-opcodes/test-suites/emulated-download/zpu-emulated-tests-standalone.zip?raw=true)
+
+**Use this independent suite when your branch does not contain the hardware
+tests.** Extract and copy the whole `zpu-emulated-tests` folder into your
+repository's `software/` folder, alongside `crt0Stuff/crt0.S`. It includes all
+of its own runtime helpers and the Java reference simulator. No original Tier 0
+suite, original manifest or add-on installer is required. From the repo root:
+
+```sh
+cd software/zpu-emulated-tests
+sh run_emulated_tests.sh reference
+```
+
+The hardware tests can later coexist in `software/zpu-tests`; the two folders
+run independently. The branch's handler source is still the input being tested.
+If it differs from the prebuilt images, rebuild those images against your source.
+
+The two older packages below remain available for existing installations.
+
 [Already have Tier 0? Download only the emulated-opcode test add-on](https://github.com/theMasterRB/zpugcc/blob/test-suite/emulated-opcodes/test-suites/emulated-download/zpu-emulated-opcode-addon.zip?raw=true)
 
 The add-on adds the new test sources, runner, prebuilt images and Java adapter

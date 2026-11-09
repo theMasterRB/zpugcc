@@ -184,7 +184,7 @@ python3 -m unittest discover -s checks -v
 python3 tools/check_negative_emulated.py
 ```
 
-Expect 24 host checks and five deliberately unsuccessful executions rejected:
+Expect 27 host checks and five deliberately unsuccessful executions rejected:
 broken EQ handler, timeout, skipped zero-result STORE, wrong vector stride and
 Java native execution that produces correct values without running the handler.
 Two negative executions use temporary mutant C++ core sources. No normal source,

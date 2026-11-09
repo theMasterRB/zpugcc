@@ -1,0 +1,70 @@
+{
+  "backend": {
+    "core_sources": {
+      "simulator/zpu_core.cpp": "e90bbfb881aee28aa2b003ed8603c1cb4abd006f5a5615fb4d30b8d709b91ced",
+      "simulator/zpu_core.h": "37d30fdeae619594394a764b43c8d2e7cdc51767f1956159a9ba63a7d76d8503"
+    },
+    "adapter_sha256": "f2383082491c2d61181d185158216fd28ba2268e22a578846ffbce9a8e4c73bb",
+    "executable_sha256": "b366ea1f2486129fc28a5a6cba5962555aee21f8c1a6983f0fd60c847b0980a0",
+    "compile_command": [
+      "/usr/bin/g++",
+      "-std=c++11",
+      "-Wall",
+      "-Wextra",
+      "-O2",
+      "-I",
+      "/tmp/zpu-independent-dwbt7us8/simulator",
+      "/tmp/zpu-independent-dwbt7us8/simulator/zpu_core.cpp",
+      "/tmp/zpu-independent-dwbt7us8/software/zpu-emulated-tests/tools/CppRunner.cpp",
+      "-o",
+      "/tmp/zpu-independent-dwbt7us8/software/zpu-emulated-tests/runs/tools/cpp-runner"
+    ]
+  },
+  "negative_cases": [
+    {
+      "name": "broken_eq_handler",
+      "outcome": "REJECTED_AS_EXPECTED",
+      "reason": "Incomplete execution: completion marker is 0x00000000, not 0x5a505530",
+      "image_sha256": "4be52022c36515d0de9ad1723b181df6ab8230d936b87dfd3eb50a18557e8ca6"
+    },
+    {
+      "name": "instruction_budget",
+      "outcome": "REJECTED_AS_EXPECTED",
+      "reason": "Execution did not halt normally: 'TIMEOUT instructions=1'",
+      "image_sha256": "be2f7081d95cf75ec13da82f544c932c7a8a844cf4ccf3a1f67050c8685c8602"
+    },
+    {
+      "name": "missing_zero_result_write",
+      "outcome": "REJECTED_AS_EXPECTED",
+      "reason": [
+        "slot 6 @ 0x1028: A=0x00000000, B=0x00000001; expected 0x00000000, got 0xbadc0ffe"
+      ],
+      "mutant_source_sha256": "c0d31bfac85b31da226890a17f598f0f27f87adbb41fcc1107ffa0fb953d9a47"
+    },
+    {
+      "name": "wrong_vector_stride",
+      "outcome": "REJECTED_AS_EXPECTED",
+      "reason": [
+        "Incomplete execution: completion marker is 0x00000000, not 0x5a505530"
+      ],
+      "mutant_source_sha256": "0cfd5d40498af5b367e4d79e13f479e03b7ed80ffed9893afa43cef385bf306b"
+    },
+    {
+      "name": "native_bypass",
+      "outcome": "REJECTED_AS_EXPECTED",
+      "reason": "Missing software dispatch for opcode 46 at 0x2296: expected vector PC, SP-4 and PC+1 return address",
+      "backend": {
+        "runtime": "openjdk version \"1.8.0_472\"\nOpenJDK Runtime Environment (Temurin)(build 1.8.0_472-b08)\nOpenJDK 64-Bit Server VM (Temurin)(build 25.472-b08, mixed mode)",
+        "adapter": {
+          "directory": "tools/emulated-java8",
+          "source_sha256": "1f5bf7cfecbc706c85b25d6a8aabf76a37a0265698349e61627911a15a79319d",
+          "classes": {
+            "EmulationRunner.class": "dbe923900a57acbd0784a2c80b69730b9491ffa329d23bf4cb85c0f6349f192e",
+            "EmulationRunner$Cpu.class": "9d12d7e6d474fb287526fd805bfa7eae33f57f3cc9c70a84b2da1bb75e4f4d21"
+          }
+        },
+        "jar_sha256": "a4ed991ec14bed109bfbd1bb7989860f166700cf11cd52fcfcbe80abe3cfe655"
+      }
+    }
+  ]
+}

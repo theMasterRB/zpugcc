@@ -17,7 +17,7 @@ and `sh run_emulated_tests.sh cpp`. Included images/Java 8 bytecode avoid a ZPU
 compiler or JDK requirement for normal runs; C++ execution requires g++.
 
 Validation: all 1,519 checks pass on both backends; all 26 complete handler
-execution traces match. All 24 host safeguard checks pass. Five negative
+execution traces match. All 27 host safeguard checks pass. Five negative
 executions are rejected, including two mutant C++ cores and native Java bypass.
 Original Tier 0's three negative executions are also rejected. No CRT handler
 or C++ instruction semantics are changed. Boot/reset, interrupts, devices,

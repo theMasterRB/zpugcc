@@ -21,6 +21,13 @@ def digest(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+def handler_digest():
+    # The C preprocessor treats LF and CRLF source lines identically. Preserve
+    # code-change detection without depending on the parent repo's Git policy.
+    raw = (ROOT / spec()["handler_source"]).read_bytes()
+    return hashlib.sha256(raw.replace(b"\r\n", b"\n")).hexdigest()
+
+
 def spec():
     return json.loads((ROOT / "emulated_cases.json").read_text())
 
@@ -28,7 +35,8 @@ def spec():
 def sources(name):
     paths = ["emulated/" + name + ".S", "common/emulated.inc", "common/tier0.inc",
              "common/emulated.ld", "emulated_cases.json", spec()["handler_source"]]
-    return {path: digest(ROOT / path) for path in paths}
+    handler = spec()["handler_source"]
+    return {path: handler_digest() if path == handler else digest(ROOT / path) for path in paths}
 
 
 def write_json(path, value):
@@ -235,7 +243,7 @@ def run_tests(args, definition):
     runs.mkdir(exist_ok=True)
     session = Path(tempfile.mkdtemp(prefix="emulated-" + args.backend + "-", dir=runs))
     summary = {"backend": args.backend, "backend_metadata": backend_metadata,
-               "handler_sha256": digest(ROOT / definition["handler_source"]),
+               "handler_sha256": handler_digest(),
                "manifest_sha256": digest(ROOT / "emulated_manifest.json"),
                "max_instructions": args.max_instructions,
                "not_implemented": definition["unimplemented"], "results": []}
@@ -273,10 +281,14 @@ def main():
     sub = parser.add_subparsers(dest="command", required=True)
     build_parser = sub.add_parser("build")
     build_parser.add_argument("--tool-prefix", default="zpu-elf-")
-    p = sub.add_parser("cpp-tier0", help="original 19 native-only tests on team C++ core")
-    p.add_argument("name", nargs="?", default="all", choices=["all", *tier0.read_manifest()["tests"]])
-    p.add_argument("--cxx", default="g++")
-    p.add_argument("--max-instructions", type=int, default=200000)
+    # The emulated suite is also distributed independently. Native-only tests
+    # are optional, and their manifest must never be required just to run or
+    # display help for the software-handler tests.
+    if (ROOT / "manifest.json").is_file() and (ROOT / "tier0").is_dir():
+        p = sub.add_parser("cpp-tier0", help="original 19 native-only tests on team C++ core")
+        p.add_argument("name", nargs="?", default="all", choices=["all", *tier0.read_manifest()["tests"]])
+        p.add_argument("--cxx", default="g++")
+        p.add_argument("--max-instructions", type=int, default=200000)
     for backend in ("cpp", "reference"):
         p = sub.add_parser(backend)
         p.set_defaults(backend=backend)

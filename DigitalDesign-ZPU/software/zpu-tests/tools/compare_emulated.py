@@ -9,7 +9,7 @@ import tempfile
 from zipfile import ZipFile, BadZipFile
 
 import run as tier0
-from run_emulated import ROOT, digest, load_image, spec, validate_trace, write_json
+from run_emulated import ROOT, digest, handler_digest, load_image, spec, validate_trace, write_json
 
 
 def rows(path):
@@ -39,7 +39,7 @@ def compare_directories(left, right):
     names = set(definition["tests"])
     for directory in (left, right):
         summary = json.loads((directory / "summary.json").read_text())
-        if (summary["handler_sha256"] != digest(ROOT / definition["handler_source"])
+        if (summary["handler_sha256"] != handler_digest()
                 or summary["manifest_sha256"] != digest(ROOT / "emulated_manifest.json")):
             raise ValueError(str(directory) + ": stale handler/expectation provenance")
         if {r["name"] for r in summary["results"] if r["outcome"] == "PASS"} != names:
@@ -63,7 +63,7 @@ def compare_directories(left, right):
         results.append({"name": name, "outcome": "MATCH", "instruction_rows": len(a)})
         print(f"MATCH {name}: {len(a)} instruction rows")
     return {"left": str(left), "right": str(right), "results": results,
-            "handler_sha256": digest(ROOT / definition["handler_source"]),
+            "handler_sha256": handler_digest(),
             "manifest_sha256": digest(ROOT / "emulated_manifest.json")}
 
 

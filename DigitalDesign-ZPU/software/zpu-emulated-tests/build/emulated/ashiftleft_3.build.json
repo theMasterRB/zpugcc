@@ -1,0 +1,29 @@
+{
+  "sources": {
+    "emulated/ashiftleft_3.S": "92c581dde7ed997ad120e6a93cf2f7df45858f29e238294fc600abb74ebf7b3a",
+    "common/emulated.inc": "55a443b4a41fabc384b25ddb9bdc677db60d4ba811c6854462b4f81ab63707cc",
+    "common/tier0.inc": "d7f31d2b003e7d07b6fe6c457f9194699c0567e25fe3ea7e831ba26621c00051",
+    "common/emulated.ld": "86fb7ca9d129ced7ff6eeb88c646430ff465ea4ed75ecb790e72275bdb5bba38",
+    "emulated_cases.json": "6a0073715bb9c3357c1b62442c6bed978500fcbb2d1f77359c4861808e406e4b",
+    "../crt0Stuff/crt0.S": "50869dede1db6dad209247fc01489e5a6301f96d79253c9ed8d8ce872ad687ed"
+  },
+  "image_sha256": "c6fba777df5b214c8525bd5171f78419c2a2e9724c8c03dd2c62079a976b4395",
+  "entry_pc": 8192,
+  "final_pc": 9185,
+  "code_ranges": [
+    [
+      0,
+      1001
+    ],
+    [
+      1024,
+      1236
+    ],
+    [
+      8192,
+      9186
+    ]
+  ],
+  "opcode": 43,
+  "manifest_sha256": "e7e870417751437eaf17512ac3c094791d881ba5a31e67bf6307c249a854a1c6"
+}

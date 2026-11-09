@@ -1,0 +1,12 @@
+common/** -text
+emulated/** -text
+emulated_cases.json -text
+emulated_manifest.json -text
+emulated_reference.json -text
+reference.json -text
+tools/** -text
+reference/** -text -whitespace
+build/** -text
+build/emulated/*.hex -diff
+evidence/** -text
+run_emulated_tests.sh text eol=lf
